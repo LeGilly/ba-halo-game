@@ -203,7 +203,11 @@ function updateScores() {
   const done = deck.seen.length, total = done + deck.queue.length;
   els.progressLabel.textContent = deck.phase === "review" ? "Review" : "Round";
   els.progress.textContent = `${done}/${total}`;
-  els.accuracy.textContent = done ? `${Math.round((deck.correct / done) * 100)}%` : "–";
+  const pct = done ? Math.round((deck.correct / done) * 100) : null;
+  els.accuracy.textContent = pct === null ? "–" : `${pct}%`;
+  // Colour from red (0%) through yellow to green (100%): hue 0 → 120.
+  els.accuracy.classList.toggle("rated", pct !== null);
+  if (pct !== null) els.accuracy.style.setProperty("--hue", Math.round(pct * 1.2));
 }
 
 function rebuildPool() {

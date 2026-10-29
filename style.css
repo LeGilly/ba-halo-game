@@ -105,6 +105,10 @@ button.link { background: none; color: var(--muted); font-weight: 400; font-size
 .scores div { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 10px 4px; }
 .scores span { display: block; font-size: 1.5rem; font-weight: 700; font-variant-numeric: tabular-nums; }
 .scores small { color: var(--muted); }
+#accuracy.rated { color: hsl(var(--hue) 75% 32%); transition: color .3s ease; }
+@media (prefers-color-scheme: dark) {
+  #accuracy.rated { color: hsl(var(--hue) 70% 60%); }
+}
 
 footer { margin-top: 24px; text-align: center; font-size: 0.78rem; color: var(--muted); }
 footer a { color: inherit; }

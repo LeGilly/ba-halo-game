@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Who's that Halo? · Blue Archive</title>
+  <meta name="description" content="Guess Blue Archive students from their halos. Auto-updates from the Blue Archive Wiki.">
+  <meta name="theme-color" content="#128afa">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <h1>Who's that <span>Halo</span>?</h1>
+      <p class="sub" id="status">Loading halos…</p>
+    </header>
+
+    <section class="options" aria-label="Options">
+      <div class="chips" id="pools"></div>
+      <label class="toggle"><input type="checkbox" id="hard"> Silhouette mode</label>
+    </section>
+
+    <section class="card" id="card">
+      <div class="stage" id="stage">
+        <img id="halo" alt="Mystery halo" draggable="false" referrerpolicy="no-referrer">
+      </div>
+      <p class="reveal" id="reveal" aria-live="polite"></p>
+
+      <form id="guessForm" autocomplete="off">
+        <div class="ac">
+          <input id="guess" type="text" placeholder="Type a name…" aria-label="Your guess" disabled>
+          <ul id="suggest" role="listbox"></ul>
+        </div>
+        <button type="submit" id="submitBtn" disabled>Guess</button>
+        <button type="button" id="skipBtn" class="ghost" disabled>Skip</button>
+      </form>
+      <button id="nextBtn" class="next" hidden>Next halo →</button>
+    </section>
+
+    <section class="scores">
+      <div><span id="streak">0</span><small>Streak</small></div>
+      <div><span id="best">0</span><small>Best</small></div>
+      <div><span id="seen">0</span><small>Guessed</small></div>
+    </section>
+
+    <footer>
+      Halo images and lists come live from the
+      <a href="https://bluearchive.fandom.com/wiki/Halo/Gallery" target="_blank" rel="noopener">Blue Archive Wiki</a>
+      (CC BY-SA). Blue Archive © NEXON Games / Yostar. Fan-made, not affiliated.
+    </footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,5 +1,7 @@
 # Who's that Halo?
 
+**▶ Play: https://legilly.github.io/ba-halo-game/**
+
 A Blue Archive halo guessing game. The halo list and images load live from the
 [Blue Archive Wiki Halo Gallery](https://bluearchive.fandom.com/wiki/Halo/Gallery),
 so new students appear automatically once the wiki adds them.

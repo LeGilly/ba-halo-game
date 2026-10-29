@@ -11,6 +11,7 @@ const els = {
   reveal: $("reveal"), form: $("guessForm"), guess: $("guess"), suggest: $("suggest"),
   submit: $("submitBtn"), skip: $("skipBtn"), next: $("nextBtn"),
   streak: $("streak"), best: $("best"), seen: $("seen"),
+  loaderText: $("loaderText"), preload: $("preloadBtn"),
 };
 
 const store = {
@@ -25,6 +26,25 @@ let groups = [];       // group names in wiki order
 let pools = new Set(store.get("pools", DEFAULT_POOLS));
 let pool = [], bag = [], current = null, answered = false;
 let streak = 0, seen = 0, selIdx = -1;
+let upcoming = null, roundId = 0, loading = true;
+
+// ---------- Image preloading ----------
+// Keeps one Image per URL so a halo is only downloaded once, then shows instantly.
+const imgCache = new Map();
+function preload(url) {
+  if (!imgCache.has(url)) {
+    const p = new Promise((resolve, reject) => {
+      const im = new Image();
+      im.referrerPolicy = "no-referrer";
+      im.onload = () => (im.decode ? im.decode().catch(() => {}) : Promise.resolve()).then(() => resolve(im));
+      im.onerror = () => { imgCache.delete(url); reject(new Error("image failed: " + url)); };
+      im.src = url;
+    });
+    p.catch(() => {});
+    imgCache.set(url, p);
+  }
+  return imgCache.get(url);
+}
 
 // ---------- Data loading ----------
 async function fetchWiki() {
@@ -116,8 +136,10 @@ function updateScores() {
 function rebuildPool() {
   pool = all.filter((x) => pools.has(x.group));
   bag = [];
+  upcoming = null;
   streak = 0;
   updateScores();
+  resetPreloadBtn();
 }
 
 function draw() {
@@ -127,20 +149,73 @@ function draw() {
   return pick;
 }
 
-function nextRound() {
+function setLoading(on, text = "Loading halo…") {
+  loading = on;
+  els.stage.classList.toggle("loading", on);
+  els.loaderText.textContent = text;
+  els.submit.disabled = on; els.skip.disabled = on;
+}
+
+function nextRound(failures = 0) {
   if (!pool.length) return;
-  current = draw();
+  const id = ++roundId;
+  current = upcoming || draw();
+  upcoming = pool.length > 1 ? draw() : null;
   answered = false;
+
+  // Clear the old halo right away so it is never shown for the new round.
+  els.halo.removeAttribute("src");
   els.stage.classList.remove("revealed");
   els.stage.classList.toggle("hard", els.hard.checked);
-  els.halo.src = current.url;
   els.reveal.textContent = ""; els.reveal.className = "reveal";
   els.guess.value = ""; els.guess.disabled = false;
-  els.submit.disabled = false; els.skip.disabled = false;
   els.next.hidden = true;
   closeSuggest();
+  setLoading(true);
   els.guess.focus({ preventScroll: true });
+
+  preload(current.url)
+    .then(() => {
+      if (id !== roundId) return;              // a newer round started meanwhile
+      els.halo.src = current.url;
+      return (els.halo.decode ? els.halo.decode().catch(() => {}) : Promise.resolve()).then(() => {
+        if (id !== roundId) return;
+        setLoading(false);
+        if (upcoming) preload(upcoming.url);   // fetch the next halo in the background
+      });
+    })
+    .catch(() => {
+      if (id !== roundId) return;
+      if (failures < 3) nextRound(failures + 1);  // broken image: quietly pick another
+      else setLoading(true, "Couldn't load halos. Check your connection and refresh.");
+    });
 }
+
+// ---------- Preload all ----------
+function resetPreloadBtn() {
+  if (!els.preload) return;
+  els.preload.disabled = !pool.length;
+  els.preload.textContent = "Preload all";
+}
+
+async function preloadAll() {
+  const urls = [...new Set(pool.map((x) => x.url))];
+  let done = 0;
+  els.preload.disabled = true;
+  const tick = () => { els.preload.textContent = `Preloading ${done}/${urls.length}…`; };
+  tick();
+  let i = 0;
+  const worker = async () => {
+    while (i < urls.length) {
+      const url = urls[i++];
+      try { await preload(url); } catch {}
+      done++; tick();
+    }
+  };
+  await Promise.all(Array.from({ length: 6 }, worker));
+  els.preload.textContent = "All halos ready ✓";
+}
+els.preload.addEventListener("click", preloadAll);
 
 function finish(correct, guessText) {
   answered = true;
@@ -207,7 +282,7 @@ els.suggest.addEventListener("mousedown", (e) => {
 });
 
 function submitGuess() {
-  if (answered || !current) return;
+  if (answered || !current || loading) return;
   const lis = [...els.suggest.children];
   if (selIdx >= 0 && lis[selIdx]) els.guess.value = lis[selIdx].dataset.name;
   const text = els.guess.value.trim();
@@ -222,8 +297,8 @@ function submitGuess() {
 }
 
 els.form.addEventListener("submit", (e) => { e.preventDefault(); submitGuess(); });
-els.skip.addEventListener("click", () => finish(false, ""));
-els.next.addEventListener("click", nextRound);
+els.skip.addEventListener("click", () => { if (!loading && !answered) finish(false, ""); });
+els.next.addEventListener("click", () => nextRound());
 els.hard.addEventListener("change", () => {
   store.set("hard", els.hard.checked);
   streak = 0; updateScores();
@@ -247,6 +322,7 @@ document.addEventListener("click", (e) => { if (!e.target.closest(".ac")) closeS
     renderPools(); rebuildPool(); nextRound();
   } catch (e) {
     console.error(e);
+    setLoading(true, "Couldn't load halos");
     els.status.textContent = "Couldn't reach the Blue Archive Wiki. Try refreshing in a moment.";
   }
 })();

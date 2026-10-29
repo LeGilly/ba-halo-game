@@ -18,11 +18,13 @@
     <section class="options" aria-label="Options">
       <div class="chips" id="pools"></div>
       <label class="toggle"><input type="checkbox" id="hard"> Silhouette mode</label>
+      <button type="button" class="chip" id="preloadBtn" disabled>Preload all</button>
     </section>
 
     <section class="card" id="card">
-      <div class="stage" id="stage">
+      <div class="stage loading" id="stage">
         <img id="halo" alt="Mystery halo" draggable="false" referrerpolicy="no-referrer">
+        <div class="loader" id="loader"><span class="spinner"></span><span id="loaderText">Loading halo…</span></div>
       </div>
       <p class="reveal" id="reveal" aria-live="polite"></p>
 

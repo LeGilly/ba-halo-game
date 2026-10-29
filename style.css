@@ -46,6 +46,17 @@ h1 span { color: var(--accent); }
   background: var(--stage); border-radius: 12px; height: 260px;
   display: grid; place-items: center; overflow: hidden;
 }
+.stage > * { grid-area: 1 / 1; }
+.stage.loading img { visibility: hidden; }
+.loader { display: none; align-items: center; gap: 10px; color: var(--muted); font-size: 0.9rem; }
+.stage.loading .loader { display: flex; }
+.spinner {
+  width: 18px; height: 18px; border-radius: 50%;
+  border: 2px solid var(--line); border-top-color: var(--accent);
+  animation: spin .8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+#preloadBtn:disabled { opacity: .6; cursor: default; }
 .stage img { max-width: 80%; max-height: 220px; user-select: none; transition: filter .35s ease, transform .35s ease; }
 .stage.hard img { filter: brightness(0); }
 .stage.hard.revealed img { filter: none; }

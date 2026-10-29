@@ -414,7 +414,9 @@ els.hard.addEventListener("change", () => {
 document.addEventListener("keydown", (e) => {
   if (e.key === "Enter" && answered && !els.next.hidden && document.activeElement !== els.next) showCurrent();
 });
-document.addEventListener("click", (e) => { if (!e.target.closest(".ac")) closeSuggest(); });
+// Close suggestions when clicking elsewhere. Clicks inside the form are ignored: pressing Enter
+// fires a "click" on the Guess button, which used to clear the highlighted name before submitting.
+document.addEventListener("click", (e) => { if (!e.target.closest("#guessForm")) closeSuggest(); });
 
 // ---------- Start ----------
 (async function init() {

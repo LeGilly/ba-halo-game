@@ -92,7 +92,16 @@ button:disabled { opacity: .45; cursor: default; }
 button.ghost { background: transparent; color: var(--muted); border: 1px solid var(--line); }
 .next { width: 100%; margin-top: 4px; }
 
-.scores { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 14px; text-align: center; }
+[hidden] { display: none !important; }
+.summary { text-align: center; padding: 18px 8px 6px; }
+.summary h2 { margin: 0 0 4px; font-size: 1.4rem; }
+.summary .big { font-size: 1.15rem; font-weight: 600; margin: 0 0 12px; }
+.summary .missed { color: var(--muted); font-size: 0.9rem; margin: 0 0 16px; }
+.summary .missed strong { color: var(--ink); }
+.summary button { display: block; width: 100%; margin-top: 8px; }
+.restart { text-align: center; margin: 8px 0 0; }
+button.link { background: none; color: var(--muted); font-weight: 400; font-size: 0.85rem; padding: 4px 8px; text-decoration: underline; }
+.scores { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 14px; text-align: center; }
 .scores div { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 10px 4px; }
 .scores span { display: block; font-size: 1.5rem; font-weight: 700; font-variant-numeric: tabular-nums; }
 .scores small { color: var(--muted); }
@@ -101,6 +110,7 @@ footer { margin-top: 24px; text-align: center; font-size: 0.78rem; color: var(--
 footer a { color: inherit; }
 
 @media (max-width: 420px) {
+  .scores { grid-template-columns: repeat(2, 1fr); }
   form { flex-wrap: wrap; }
   .ac { flex-basis: 100%; }
   form button { flex: 1; }

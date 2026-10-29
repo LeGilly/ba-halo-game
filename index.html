@@ -6,7 +6,7 @@
   <title>Who's that Halo? · Blue Archive</title>
   <meta name="description" content="Guess Blue Archive students from their halos. Auto-updates from the Blue Archive Wiki.">
   <meta name="theme-color" content="#128afa">
-  <link rel="stylesheet" href="style.css?v=3">
+  <link rel="stylesheet" href="style.css?v=4">
 </head>
 <body>
   <main class="wrap">
@@ -37,13 +37,16 @@
         <button type="button" id="skipBtn" class="ghost" disabled>Skip</button>
       </form>
       <button id="nextBtn" class="next" hidden>Next halo →</button>
+      <div id="summary" class="summary" hidden></div>
     </section>
 
     <section class="scores">
+      <div><span id="progress">0/0</span><small id="progressLabel">Round</small></div>
+      <div><span id="accuracy">–</span><small>Correct</small></div>
       <div><span id="streak">0</span><small>Streak</small></div>
-      <div><span id="best">0</span><small>Best</small></div>
-      <div><span id="seen">0</span><small>Guessed</small></div>
+      <div><span id="best">0</span><small>Best streak</small></div>
     </section>
+    <p class="restart"><button type="button" id="restartBtn" class="link">Restart round</button></p>
 
     <footer>
       Halo images and lists come live from the
@@ -51,6 +54,6 @@
       (CC BY-SA). Blue Archive © NEXON Games / Yostar. Fan-made, not affiliated.
     </footer>
   </main>
-  <script src="app.js?v=3"></script>
+  <script src="app.js?v=4"></script>
 </body>
 </html>

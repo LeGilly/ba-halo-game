@@ -1,7 +1,7 @@
 // Who's that Halo? — reads the halo list live from the Blue Archive Wiki.
 const WIKI_API =
   "https://bluearchive.fandom.com/api.php?action=parse&page=Halo/Gallery&prop=text&format=json&formatversion=2&origin=*";
-const CACHE_KEY = "halo-cache-v1";
+const CACHE_KEY = "halo-cache-v2";
 const CACHE_HOURS = 12;
 const DEFAULT_POOLS = ["Playable"];
 
@@ -76,7 +76,7 @@ function parseGallery(html) {
     if (!/_Halo\./i.test(key) || seenKeys.has(key)) return;
     seenKeys.add(key);
     let src = el.getAttribute("data-src") || el.getAttribute("src") || "";
-    src = src.replace(/\/scale-to-width-down\/\d+/, "/scale-to-width-down/400");
+    src = src.replace(/\/scale-to-width-down\/\d+/, "");   // original file: already cached by the wiki's CDN, much faster
     const name = (el.getAttribute("alt") || decodeURIComponent(key).replace(/_Halo\..*$/i, "").replace(/_/g, " ")).trim();
     items.push({ name, group: group || "Other", url: src });
   });

@@ -2,8 +2,8 @@
   "_help": "Manual tweaks on top of the wiki data. exclude: names to hide. aliases: extra accepted spellings. rename: change a displayed name. extra: halos not on the wiki yet (group = Playable, NPC or anything). For security, extra images must be a Blue Archive Wiki image link (static.wikia.nocookie.net) or a file uploaded to this repository, e.g. \"halos/new-student.png\".",
   "exclude": [],
   "aliases": {
-    "Alice": [
-      "Aris",
+    "Aris": [
+      "Alice",
       "Arisu"
     ],
     "Shiroko Terror": [
@@ -22,7 +22,9 @@
       "Ruiko"
     ]
   },
-  "rename": {},
+  "rename": {
+    "Alice": "Aris"
+  },
   "extra": [
     {
       "name": "Example Student",

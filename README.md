@@ -9,8 +9,8 @@ so new students appear automatically once the wiki adds them.
 ## Manual tweaks: `config.json`
 
 - `exclude`: names to hide, e.g. `["Arona"]`
-- `aliases`: extra accepted spellings, e.g. `"Alice": ["Aris", "Arisu"]`
-- `rename`: change a displayed name, e.g. `"Shiroko Terror": "Shiroko*Terror"`
+- `aliases`: extra accepted spellings, e.g. `"Aris": ["Alice", "Arisu"]`
+- `rename`: change a displayed name, e.g. `"Alice": "Aris"`
 - `extra`: add a halo the wiki doesn't have yet:
   `{ "name": "New Student", "group": "Playable", "url": "halos/new-student.png" }`
   (the image must be uploaded to this repository, or be a Blue Archive Wiki image link; other sites are blocked for security)

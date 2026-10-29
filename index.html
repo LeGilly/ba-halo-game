@@ -3,10 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Security: only run this site's own code, only load data/images from the wiki. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' https://static.wikia.nocookie.net; connect-src 'self' https://bluearchive.fandom.com; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="no-referrer">
   <title>Who's that Halo? · Blue Archive</title>
   <meta name="description" content="Guess Blue Archive students from their halos. Auto-updates from the Blue Archive Wiki.">
   <meta name="theme-color" content="#128afa">
-  <link rel="stylesheet" href="style.css?v=4">
+  <link rel="stylesheet" href="style.css?v=6">
 </head>
 <body>
   <main class="wrap">
@@ -54,6 +57,6 @@
       (CC BY-SA). Blue Archive © NEXON Games / Yostar. Fan-made, not affiliated.
     </footer>
   </main>
-  <script src="app.js?v=5"></script>
+  <script src="app.js?v=6"></script>
 </body>
 </html>

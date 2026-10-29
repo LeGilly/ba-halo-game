@@ -21,6 +21,15 @@ const store = {
   set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} },
 };
 
+// Only accept halo images from the wiki's image server, or files hosted in this repository.
+const IMAGE_HOST = "static.wikia.nocookie.net";
+function isAllowedImage(url) {
+  try {
+    const u = new URL(url, location.href);
+    return u.origin === location.origin || (u.protocol === "https:" && u.hostname === IMAGE_HOST);
+  } catch { return false; }
+}
+
 const norm = (s) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]/g, "");
 const esc = (s) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
@@ -136,6 +145,7 @@ function applyConfig(items, cfg) {
   const extra = (cfg.extra || []).filter((x) => x && x.name && x.url && !x._disabled);
   const map = new Map();
   for (const it of [...items, ...extra.map((x) => ({ name: x.name, group: x.group || "Playable", url: x.url }))]) {
+    if (typeof it.name !== "string" || !isAllowedImage(it.url)) continue;   // skip anything suspicious
     const name = rename[it.name] || it.name;
     if (exclude.has(norm(name)) || exclude.has(norm(it.name))) continue;
     map.set(norm(name), { ...it, name });   // extras override wiki entries with the same name

@@ -12,7 +12,8 @@ so new students appear automatically once the wiki adds them.
 - `aliases`: extra accepted spellings, e.g. `"Alice": ["Aris", "Arisu"]`
 - `rename`: change a displayed name, e.g. `"Shiroko Terror": "Shiroko*Terror"`
 - `extra`: add a halo the wiki doesn't have yet:
-  `{ "name": "New Student", "group": "Playable", "url": "https://…/halo.png" }`
+  `{ "name": "New Student", "group": "Playable", "url": "halos/new-student.png" }`
+  (the image must be uploaded to this repository, or be a Blue Archive Wiki image link; other sites are blocked for security)
 
 Edit it right on GitHub (pencil icon); the site updates within a minute or two.
 Players' browsers cache the wiki list for 12 hours.

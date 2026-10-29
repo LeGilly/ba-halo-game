@@ -1,15 +1,34 @@
 {
-  "_help": "Manual tweaks on top of the wiki data. exclude: names to hide. aliases: extra accepted spellings. rename: change a displayed name. extra: halos not on the wiki yet (group = Playable, NPC or anything).",
+  "_help": "Manual tweaks on top of the wiki data. exclude: names to hide. aliases: extra accepted spellings. rename: change a displayed name. extra: halos not on the wiki yet (group = Playable, NPC or anything). For security, extra images must be a Blue Archive Wiki image link (static.wikia.nocookie.net) or a file uploaded to this repository, e.g. \"halos/new-student.png\".",
   "exclude": [],
   "aliases": {
-    "Alice": ["Aris", "Arisu"],
-    "Shiroko Terror": ["Shiroko*Terror", "Shiroko (Terror)", "Kuroko"],
-    "Misaka Mikoto": ["Mikoto"],
-    "Shokuhou Misaki": ["Shokuhou"],
-    "Saten Ruiko": ["Saten", "Ruiko"]
+    "Alice": [
+      "Aris",
+      "Arisu"
+    ],
+    "Shiroko Terror": [
+      "Shiroko*Terror",
+      "Shiroko (Terror)",
+      "Kuroko"
+    ],
+    "Misaka Mikoto": [
+      "Mikoto"
+    ],
+    "Shokuhou Misaki": [
+      "Shokuhou"
+    ],
+    "Saten Ruiko": [
+      "Saten",
+      "Ruiko"
+    ]
   },
   "rename": {},
   "extra": [
-    { "name": "Example Student", "group": "Playable", "url": "https://example.com/halo.png", "_disabled": true }
+    {
+      "name": "Example Student",
+      "group": "Playable",
+      "url": "https://example.com/halo.png",
+      "_disabled": true
+    }
   ]
 }

@@ -1,6 +1,7 @@
 // Who's that Halo? — reads the halo list live from the Blue Archive Wiki.
 const WIKI_API =
-  "https://bluearchive.fandom.com/api.php?action=parse&page=Halo/Gallery&prop=text&format=json&formatversion=2&origin=*";
+  "https://bluearchive.fandom.com/api.php?action=parse&page=Halo/Gallery&prop=text&format=json&formatversion=2&origin=*&useskin=fandomdesktop";
+// useskin=fandomdesktop: phones otherwise get the mobile layout, which lacks the image details we read.
 const CACHE_KEY = "halo-cache-v2";
 const DECKS_KEY = "decks-v1";
 const CACHE_HOURS = 12;
@@ -104,7 +105,8 @@ async function fetchWiki() {
     const res = await fetch(WIKI_API);
     const json = await res.json();
     const items = parseGallery(json.parse.text);
-    if (items.length) store.set(CACHE_KEY, { t: Date.now(), items });
+    if (!items.length) throw new Error("no halos found in the wiki page");
+    store.set(CACHE_KEY, { t: Date.now(), items });
     return items;
   } catch (e) {
     if (cached) return cached.items;   // offline / wiki down -> use last good copy
@@ -122,10 +124,12 @@ function parseGallery(html) {
       if (h) group = h.textContent.trim();
       return;
     }
-    const key = el.getAttribute("data-image-key") || "";
+    let src = el.getAttribute("data-src") || el.getAttribute("src") || "";
+    // File name, e.g. "Shiroko_Halo.png": from data-image-key, or from the image link as a fallback.
+    const key = el.getAttribute("data-image-key") ||
+      ((src.match(/\/images\/[0-9a-f]\/[0-9a-f]{2}\/([^/?#]+)/i) || [])[1] || "");
     if (!/_Halo\./i.test(key) || seenKeys.has(key)) return;
     seenKeys.add(key);
-    let src = el.getAttribute("data-src") || el.getAttribute("src") || "";
     src = src.replace(/\/scale-to-width-down\/\d+/, "");   // original file: already cached by the wiki's CDN, much faster
     const name = (el.getAttribute("alt") || decodeURIComponent(key).replace(/_Halo\..*$/i, "").replace(/_/g, " ")).trim();
     items.push({ name, group: group || "Other", url: src });

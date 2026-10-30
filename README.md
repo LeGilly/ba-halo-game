@@ -20,3 +20,9 @@ Players' browsers cache the wiki list for 12 hours.
 
 Credits: halo images © NEXON Games / Yostar, via the Blue Archive Wiki (CC BY-SA).
 Fan-made, not affiliated.
+
+## Versions
+
+The version shown at the bottom of the page is in `index.html`.
+For each release, raise it by one and set every `?v=` number in `index.html` to the same value,
+so browsers fetch the fresh CSS/JS. Current version: 8.

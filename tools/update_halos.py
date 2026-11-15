@@ -126,15 +126,22 @@ def main():
     if len(found) < 50:  # page layout changed or wiki error: keep what we have
         sys.exit("Too few halos found; leaving the existing files untouched.")
 
+    def up_to_date(it):
+        prev = old.get(it["name"])
+        return bool(prev and prev.get("src") == it["src"] and prev.get("v") == PROCESS_VERSION
+                    and (OUT / prev["file"]).exists())
+
+    todo = sum(not up_to_date(it) for it in found)
+    print(f"{todo} of {len(found)} halos need downloading.")
+
     taken, halos, changed, failed = set(), [], 0, []
-    fails_in_a_row, stopped = 0, None
+    fails_in_a_row, stopped, attempt = 0, None, 0
     for it in found:
         prev = old.get(it["name"])
         file = prev["file"] if prev else slug(it["name"], taken) + ".webp"
         taken.add(file[:-5])
         entry = {"name": it["name"], "group": it["group"], "file": file, "src": it["src"], "v": PROCESS_VERSION}
-        if (prev and prev.get("src") == it["src"] and prev.get("v") == PROCESS_VERSION
-                and (OUT / file).exists()):
+        if up_to_date(it):
             halos.append(entry)                     # unchanged: nothing to download
             continue
         if stopped:                                  # gave up: keep old copies, skip the rest
@@ -150,7 +157,8 @@ def main():
             if prev and (OUT / prev["file"]).exists():
                 halos.append(prev)
             continue
-        print(f"Downloading {it['name']}...")
+        attempt += 1
+        print(f"[{attempt}/{todo}] Downloading {it['name']}...")
         try:
             img = Image.open(io.BytesIO(get(it["src"])), formats=ALLOWED_FORMATS)
             img = img.convert("RGBA")

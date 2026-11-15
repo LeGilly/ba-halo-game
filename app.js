@@ -466,11 +466,15 @@ document.addEventListener("click", (e) => { if (!e.target.closest("#guessForm"))
     groups = [...new Set(all.map((x) => x.group))];
     pools = new Set([...pools].filter((g) => groups.includes(g)));
     if (!pools.size) pools = new Set(groups.includes("Playable") ? ["Playable"] : groups.slice(0, 1));
-    els.status.textContent = `${all.length} halos` + (haloSource === "site" ? " · from the Blue Archive Wiki, updated weekly" : " loaded live from the Blue Archive Wiki");
+    // Green: normal (halos copied to this site). Red: backup mode (reading the wiki directly).
+    els.status.textContent = `${all.length} halos · ` +
+      (haloSource === "site" ? "updated weekly" : "live from the wiki (backup mode)");
+    els.status.classList.add(haloSource === "site" ? "ok" : "warn");
     renderPools(); rebuildPool(); showCurrent();
   } catch (e) {
     console.error(e);
     setLoading(true, "Couldn't load halos");
-    els.status.textContent = "Couldn't reach the Blue Archive Wiki. Try refreshing in a moment.";
+    els.status.textContent = "Couldn't load the halos. Try refreshing in a moment.";
+    els.status.classList.add("warn");
   }
 })();

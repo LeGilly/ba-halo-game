@@ -25,6 +25,8 @@ API = ("https://bluearchive.fandom.com/api.php?action=parse&page=Halo/Gallery"
 IMAGE_HOST = "static.wikia.nocookie.net"
 MAX_SIZE = 360            # longest side, in pixels
 DELAY = 1.5               # seconds between downloads, to stay polite
+MAX_FAILS_IN_A_ROW = 5   # the wiki is probably blocking us: stop instead of retrying for hours
+TIME_BUDGET = 30 * 60     # seconds; stop cleanly and keep what we have after this long
 USER_AGENT = "ba-halo-game updater (+https://github.com/LeGilly/ba-halo-game)"
 MAX_BYTES = 25 * 1024 * 1024                  # refuse downloads bigger than 25 MB
 ALLOWED_FORMATS = ["PNG", "WEBP", "JPEG", "GIF"]
@@ -107,6 +109,8 @@ def slug(name, taken):
 
 
 def main():
+    sys.stdout.reconfigure(line_buffering=True)   # show progress live in the GitHub log
+    started = time.monotonic()
     OUT.mkdir(exist_ok=True)
     old = {}
     if MANIFEST.exists():
@@ -122,6 +126,7 @@ def main():
         sys.exit("Too few halos found; leaving the existing files untouched.")
 
     taken, halos, changed, failed = set(), [], 0, []
+    fails_in_a_row, stopped = 0, None
     for it in found:
         prev = old.get(it["name"])
         file = prev["file"] if prev else slug(it["name"], taken) + ".webp"
@@ -129,6 +134,19 @@ def main():
         entry = {"name": it["name"], "group": it["group"], "file": file, "src": it["src"]}
         if prev and prev.get("src") == it["src"] and (OUT / file).exists():
             halos.append(entry)                     # unchanged: nothing to download
+            continue
+        if stopped:                                  # gave up: keep old copies, skip the rest
+            if prev and (OUT / prev["file"]).exists():
+                halos.append(prev)
+            continue
+        if time.monotonic() - started > TIME_BUDGET:
+            stopped = "time limit reached"
+        elif fails_in_a_row >= MAX_FAILS_IN_A_ROW:
+            stopped = f"{fails_in_a_row} downloads failed in a row (the wiki may be blocking us)"
+        if stopped:
+            print(f"Stopping early: {stopped}. The rest will be tried next run.")
+            if prev and (OUT / prev["file"]).exists():
+                halos.append(prev)
             continue
         print(f"Downloading {it['name']}...")
         try:
@@ -138,16 +156,18 @@ def main():
             img.save(OUT / file, "WEBP", quality=88, method=6)
             halos.append(entry)
             changed += 1
+            fails_in_a_row = 0
         except Exception as e:
+            fails_in_a_row += 1
             print(f"  FAILED: {e}")
             failed.append(it["name"])
             if prev and (OUT / prev["file"]).exists():
                 halos.append(prev)                  # keep the old copy for now
         time.sleep(DELAY)
 
-    # Remove halos the wiki no longer lists.
+    # Remove halos the wiki no longer lists (only after a complete run, never after stopping early).
     keep = {h["file"] for h in halos}
-    removed = [p.name for p in OUT.glob("*.webp") if p.name not in keep]
+    removed = [] if stopped else [p.name for p in OUT.glob("*.webp") if p.name not in keep]
     for name in removed:
         (OUT / name).unlink()
 

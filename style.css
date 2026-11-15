@@ -34,6 +34,10 @@ header { text-align: center; margin-bottom: 16px; }
 h1 { margin: 0; font-size: 2rem; letter-spacing: -0.02em; }
 h1 span { color: var(--accent); }
 .sub { margin: 4px 0 0; color: var(--muted); font-size: 0.9rem; }
+.sub.ok, .sub.warn { font-weight: 600; }
+.sub.ok::before, .sub.warn::before { content: "● "; }
+.sub.ok { color: var(--good); }
+.sub.warn { color: var(--bad); }
 
 .options { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: center; margin-bottom: 14px; }
 .chips { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; }

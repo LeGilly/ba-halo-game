@@ -65,6 +65,7 @@ h1 span { color: var(--accent); }
 @keyframes spin { to { transform: rotate(360deg); } }
 #preloadBtn:disabled { opacity: .6; cursor: default; }
 .stage img { max-width: 80%; max-height: 220px; user-select: none; transition: filter .35s ease, transform .35s ease; }
+.stage img.reshaped { aspect-ratio: var(--ar); width: min(80%, calc(200px * var(--ar))); height: auto; object-fit: fill; }
 .stage.hard img { filter: brightness(0); }
 .stage.hard.revealed img { filter: none; }
 .stage.revealed img { transform: scale(1.04); }

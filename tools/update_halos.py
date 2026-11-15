@@ -24,6 +24,7 @@ API = ("https://bluearchive.fandom.com/api.php?action=parse&page=Halo/Gallery"
        "&prop=text&format=json&formatversion=2&useskin=fandomdesktop")
 IMAGE_HOST = "static.wikia.nocookie.net"
 MAX_SIZE = 360            # longest side, in pixels
+PROCESS_VERSION = 2       # raise when the image processing changes, to redo every halo once
 DELAY = 1.5               # seconds between downloads, to stay polite
 MAX_FAILS_IN_A_ROW = 5   # the wiki is probably blocking us: stop instead of retrying for hours
 TIME_BUDGET = 30 * 60     # seconds; stop cleanly and keep what we have after this long
@@ -131,8 +132,9 @@ def main():
         prev = old.get(it["name"])
         file = prev["file"] if prev else slug(it["name"], taken) + ".webp"
         taken.add(file[:-5])
-        entry = {"name": it["name"], "group": it["group"], "file": file, "src": it["src"]}
-        if prev and prev.get("src") == it["src"] and (OUT / file).exists():
+        entry = {"name": it["name"], "group": it["group"], "file": file, "src": it["src"], "v": PROCESS_VERSION}
+        if (prev and prev.get("src") == it["src"] and prev.get("v") == PROCESS_VERSION
+                and (OUT / file).exists()):
             halos.append(entry)                     # unchanged: nothing to download
             continue
         if stopped:                                  # gave up: keep old copies, skip the rest
@@ -152,6 +154,10 @@ def main():
         try:
             img = Image.open(io.BytesIO(get(it["src"])), formats=ALLOWED_FORMATS)
             img = img.convert("RGBA")
+            # Trim the empty transparent margins, so every halo fills the frame the same way.
+            box = img.getchannel("A").point(lambda a: 255 if a > 8 else 0).getbbox()
+            if box:
+                img = img.crop(box)
             img.thumbnail((MAX_SIZE, MAX_SIZE), Image.LANCZOS)   # keeps the proportions
             img.save(OUT / file, "WEBP", quality=88, method=6)
             halos.append(entry)

@@ -108,7 +108,8 @@ async function fetchHalos() {
     const data = await res.json();
     const items = (data.halos || []).map((h) => ({
       name: h.name, group: h.group,
-      url: "halos/" + encodeURIComponent(h.file) + "?" + encodeURIComponent((h.src.match(/cb=(\d+)/) || [])[1] || ""),
+      url: "halos/" + encodeURIComponent(h.file) + "?" +
+        encodeURIComponent(((h.src.match(/cb=(\d+)/) || [])[1] || "") + "-" + (h.v || 1)),
     }));
     if (!items.length) throw new Error("empty halo list");
     haloSource = "site";
@@ -167,6 +168,7 @@ function applyConfig(items, cfg) {
   const exclude = new Set((cfg.exclude || []).map(norm));
   const rename = cfg.rename || {};
   const aliases = cfg.aliases || {};
+  const aspect = cfg.aspect || {};   // e.g. { "Renge": 1.3 }: show that halo at width/height = 1.3
   const extra = (cfg.extra || []).filter((x) => x && x.name && x.url && !x._disabled);
   const map = new Map();
   for (const it of [...items, ...extra.map((x) => ({ name: x.name, group: x.group || "Playable", url: x.url }))]) {
@@ -178,7 +180,8 @@ function applyConfig(items, cfg) {
   return [...map.values()].map((it) => {
     const accept = new Set([norm(it.name)]);
     for (const a of aliases[it.name] || []) accept.add(norm(a));
-    return { ...it, accept };
+    const ar = Number(aspect[it.name]);
+    return { ...it, accept, aspect: ar > 0.2 && ar < 5 ? ar : null };
   });
 }
 
@@ -283,6 +286,10 @@ function showCurrent(failures = 0) {
     .then(() => {
       if (id !== roundId) return;              // something newer started meanwhile
       els.halo.src = current.url;
+      // Optional shape correction from config.json "aspect".
+      els.halo.classList.toggle("reshaped", !!current.aspect);
+      if (current.aspect) els.halo.style.setProperty("--ar", current.aspect);
+      else els.halo.style.removeProperty("--ar");
       return (els.halo.decode ? els.halo.decode().catch(() => {}) : Promise.resolve()).then(() => {
         if (id !== roundId) return;
         setLoading(false);

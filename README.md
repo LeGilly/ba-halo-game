@@ -21,6 +21,7 @@ To run the updater on your own PC: `pip install pillow`, then `python tools/upda
 - `exclude`: names to hide, e.g. `["Arona"]`
 - `aliases`: extra accepted spellings, e.g. `"Aris": ["Alice", "Arisu"]`
 - `rename`: change a displayed name, e.g. `"Alice": "Aris"`
+- `aspect`: fix a squashed halo by setting its width/height ratio, e.g. `"Renge": 1.3`
 - `extra`: add a halo the wiki doesn't have yet:
   `{ "name": "New Student", "group": "Playable", "url": "halos/new-student.png" }`
   (the image must be uploaded to this repository, or be a Blue Archive Wiki image link; other sites are blocked for security)
@@ -35,4 +36,4 @@ Fan-made, not affiliated.
 
 The version shown at the bottom of the page is in `index.html`.
 For each release, raise it by one and set every `?v=` number in `index.html` to the same value,
-so browsers fetch the fresh CSS/JS. Current version: 12.
+so browsers fetch the fresh CSS/JS. Current version: 13.

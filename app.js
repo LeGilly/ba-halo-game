@@ -98,6 +98,27 @@ function recordAnswer(correct) {
 }
 
 // ---------- Data loading ----------
+// Halos copied into this site weekly by the GitHub job (halos/halos.json + images).
+// Falls back to reading the wiki live if that copy is missing.
+let haloSource = "wiki";
+async function fetchHalos() {
+  try {
+    const res = await fetch("halos/halos.json", { cache: "no-cache" });
+    if (!res.ok) throw new Error("no local halos");
+    const data = await res.json();
+    const items = (data.halos || []).map((h) => ({
+      name: h.name, group: h.group,
+      url: "halos/" + encodeURIComponent(h.file) + "?" + encodeURIComponent((h.src.match(/cb=(\d+)/) || [])[1] || ""),
+    }));
+    if (!items.length) throw new Error("empty halo list");
+    haloSource = "site";
+    return items;
+  } catch (e) {
+    console.warn("Using the wiki directly:", e.message);
+    return fetchWiki();
+  }
+}
+
 async function fetchWiki() {
   const cached = store.get(CACHE_KEY, null);
   if (cached && Date.now() - cached.t < CACHE_HOURS * 3600e3) return cached.items;
@@ -440,12 +461,12 @@ document.addEventListener("click", (e) => { if (!e.target.closest("#guessForm"))
 (async function init() {
   els.hard.checked = store.get("hard", false);
   try {
-    const [items, cfg] = await Promise.all([fetchWiki(), fetchConfig()]);
+    const [items, cfg] = await Promise.all([fetchHalos(), fetchConfig()]);
     all = applyConfig(items, cfg);
     groups = [...new Set(all.map((x) => x.group))];
     pools = new Set([...pools].filter((g) => groups.includes(g)));
     if (!pools.size) pools = new Set(groups.includes("Playable") ? ["Playable"] : groups.slice(0, 1));
-    els.status.textContent = `${all.length} halos loaded from the Blue Archive Wiki`;
+    els.status.textContent = `${all.length} halos` + (haloSource === "site" ? " · from the Blue Archive Wiki, updated weekly" : " loaded live from the Blue Archive Wiki");
     renderPools(); rebuildPool(); showCurrent();
   } catch (e) {
     console.error(e);

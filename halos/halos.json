@@ -1,0 +1,1230 @@
+{
+ "source": "https://bluearchive.fandom.com/wiki/Halo/Gallery",
+ "updated": "2026-11-15",
+ "halos": [
+  {
+   "name": "Shiroko",
+   "group": "Playable",
+   "file": "shiroko.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/e/ea/Shiroko_Halo.png/revision/latest?cb=20211011152250"
+  },
+  {
+   "name": "Shiroko Terror",
+   "group": "Playable",
+   "file": "shiroko-terror.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/1/10/Shiroko_Terror_Halo.png/revision/latest?cb=20240303055048"
+  },
+  {
+   "name": "Serika",
+   "group": "Playable",
+   "file": "serika.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/f/f7/Serika_Halo.png/revision/latest?cb=20240129140731"
+  },
+  {
+   "name": "Hoshino",
+   "group": "Playable",
+   "file": "hoshino.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/c/cb/Hoshino_Halo.png/revision/latest?cb=20211011152245"
+  },
+  {
+   "name": "Nonomi",
+   "group": "Playable",
+   "file": "nonomi.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/2/21/Nonomi_Halo.png/revision/latest?cb=20211011152247"
+  },
+  {
+   "name": "Ayane",
+   "group": "Playable",
+   "file": "ayane.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/8/8f/Ayane_Halo.png/revision/latest?cb=20211011152244"
+  },
+  {
+   "name": "Makoto",
+   "group": "Playable",
+   "file": "makoto.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/a/a7/Makoto_Halo.png/revision/latest?cb=20230213125132"
+  },
+  {
+   "name": "Satsuki",
+   "group": "Playable",
+   "file": "satsuki.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/7/76/Satsuki_Halo.png/revision/latest?cb=20230315082830"
+  },
+  {
+   "name": "Chiaki",
+   "group": "Playable",
+   "file": "chiaki.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/f/f0/Chiaki_Halo.png/revision/latest?cb=20250704200317"
+  },
+  {
+   "name": "Ibuki",
+   "group": "Playable",
+   "file": "ibuki.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/5/58/Ibuki_Halo.png/revision/latest?cb=20230213125122"
+  },
+  {
+   "name": "Iroha",
+   "group": "Playable",
+   "file": "iroha.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/2/2f/Iroha_Halo.png/revision/latest?cb=20221003135955"
+  },
+  {
+   "name": "Hina",
+   "group": "Playable",
+   "file": "hina.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/8/85/Hina_Halo.png/revision/latest?cb=20211013135704"
+  },
+  {
+   "name": "Ako",
+   "group": "Playable",
+   "file": "ako.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/2/21/Ako_Halo.png/revision/latest?cb=20211205173306"
+  },
+  {
+   "name": "Iori",
+   "group": "Playable",
+   "file": "iori.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/0/07/Iori_Halo.png/revision/latest?cb=20211013135706"
+  },
+  {
+   "name": "Chinatsu",
+   "group": "Playable",
+   "file": "chinatsu.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/b/b2/Chinatsu_Halo.png/revision/latest?cb=20211013135659"
+  },
+  {
+   "name": "Aru",
+   "group": "Playable",
+   "file": "aru.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/2/2f/Aru_Halo.png/revision/latest?cb=20211013135658"
+  },
+  {
+   "name": "Mutsuki",
+   "group": "Playable",
+   "file": "mutsuki.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/b/b9/Mutsuki_Halo.png/revision/latest?cb=20211013135714"
+  },
+  {
+   "name": "Kayoko",
+   "group": "Playable",
+   "file": "kayoko.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/7/7b/Kayoko_Halo.png/revision/latest?cb=20211013135712"
+  },
+  {
+   "name": "Haruka",
+   "group": "Playable",
+   "file": "haruka.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/4/4a/Haruka_Halo.png/revision/latest?cb=20211013135702"
+  },
+  {
+   "name": "Haruna",
+   "group": "Playable",
+   "file": "haruna.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/2/2f/Haruna_Halo.png/revision/latest?cb=20211013143310"
+  },
+  {
+   "name": "Junko",
+   "group": "Playable",
+   "file": "junko.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/3/3d/Junko_Halo.png/revision/latest?cb=20211013135709"
+  },
+  {
+   "name": "Izumi",
+   "group": "Playable",
+   "file": "izumi.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/4/49/Izumi_Halo.png/revision/latest?cb=20211013135707"
+  },
+  {
+   "name": "Akari",
+   "group": "Playable",
+   "file": "akari.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/9/9c/Akari_Halo.png/revision/latest?cb=20211013135656"
+  },
+  {
+   "name": "Fuuka",
+   "group": "Playable",
+   "file": "fuuka.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/4/44/Fuuka_Halo.png/revision/latest?cb=20211013135701"
+  },
+  {
+   "name": "Juri",
+   "group": "Playable",
+   "file": "juri.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/8/8b/Juri_Halo.png/revision/latest?cb=20211013135710"
+  },
+  {
+   "name": "Sena",
+   "group": "Playable",
+   "file": "sena.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/d/d3/Sena_Halo.png/revision/latest?cb=20220210141622"
+  },
+  {
+   "name": "Megu",
+   "group": "Playable",
+   "file": "megu.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/8/84/Megu_Halo.png/revision/latest?cb=20230206161050"
+  },
+  {
+   "name": "Kasumi",
+   "group": "Playable",
+   "file": "kasumi.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/1/10/Kasumi_Halo.png/revision/latest?cb=20230213125125"
+  },
+  {
+   "name": "Kirara",
+   "group": "Playable",
+   "file": "kirara.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/8/8c/Kirara_Halo.png/revision/latest?cb=20230213125128"
+  },
+  {
+   "name": "Rio",
+   "group": "Playable",
+   "file": "rio.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/f/ff/Rio_Halo.png/revision/latest?cb=20230213125142"
+  },
+  {
+   "name": "Yuuka",
+   "group": "Playable",
+   "file": "yuuka.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/4/4e/Yuuka_Halo.png/revision/latest?cb=20211014152812"
+  },
+  {
+   "name": "Noa",
+   "group": "Playable",
+   "file": "noa.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/c/c5/Noa_Halo.png/revision/latest?cb=20221003140001"
+  },
+  {
+   "name": "Koyuki",
+   "group": "Playable",
+   "file": "koyuki.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/4/44/Koyuki_Halo.png/revision/latest?cb=20230213125129"
+  },
+  {
+   "name": "Chihiro",
+   "group": "Playable",
+   "file": "chihiro.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/8/8e/Chihiro_Halo.png/revision/latest?cb=20220210141621"
+  },
+  {
+   "name": "Maki",
+   "group": "Playable",
+   "file": "maki.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/b/bc/Maki_Halo.png/revision/latest?cb=20211014152803"
+  },
+  {
+   "name": "Hare",
+   "group": "Playable",
+   "file": "hare.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/3/35/Hare_Halo.png/revision/latest?cb=20211014152755"
+  },
+  {
+   "name": "Kotama",
+   "group": "Playable",
+   "file": "kotama.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/e/e1/Kotama_Halo.png/revision/latest?cb=20211014152800"
+  },
+  {
+   "name": "Neru",
+   "group": "Playable",
+   "file": "neru.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/d/d2/Neru_Halo.png/revision/latest?cb=20211014152808"
+  },
+  {
+   "name": "Asuna",
+   "group": "Playable",
+   "file": "asuna.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/c/c9/Asuna_Halo.png/revision/latest?cb=20211014152752"
+  },
+  {
+   "name": "Karin",
+   "group": "Playable",
+   "file": "karin.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/a/ae/Karin_Halo.png/revision/latest?cb=20211014152758"
+  },
+  {
+   "name": "Akane",
+   "group": "Playable",
+   "file": "akane.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/0/0a/Akane_Halo.png/revision/latest?cb=20211014154507"
+  },
+  {
+   "name": "Toki",
+   "group": "Playable",
+   "file": "toki.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/2/25/Toki_Halo.png/revision/latest?cb=20230213125151"
+  },
+  {
+   "name": "Utaha",
+   "group": "Playable",
+   "file": "utaha.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/d/dc/Utaha_Halo.png/revision/latest?cb=20211014152811"
+  },
+  {
+   "name": "Hibiki",
+   "group": "Playable",
+   "file": "hibiki.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/9/97/Hibiki_Halo.png/revision/latest?cb=20211014152757"
+  },
+  {
+   "name": "Kotori",
+   "group": "Playable",
+   "file": "kotori.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/d/dc/Kotori_Halo.png/revision/latest?cb=20211014152802"
+  },
+  {
+   "name": "Sumire",
+   "group": "Playable",
+   "file": "sumire.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/a/a2/Sumire_Halo.png/revision/latest?cb=20211014152809"
+  },
+  {
+   "name": "Rei",
+   "group": "Playable",
+   "file": "rei.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/6/6f/Rei_Halo.png/revision/latest?cb=20250930075054"
+  },
+  {
+   "name": "Himari",
+   "group": "Playable",
+   "file": "himari.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/c/c3/Himari_Halo.png/revision/latest?cb=20221122145938"
+  },
+  {
+   "name": "Eimi",
+   "group": "Playable",
+   "file": "eimi.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/d/d3/Eimi_Halo.png/revision/latest?cb=20211014152754"
+  },
+  {
+   "name": "Yuzu",
+   "group": "Playable",
+   "file": "yuzu.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/c/cc/Yuzu_Halo.png/revision/latest?cb=20211014152814"
+  },
+  {
+   "name": "Midori",
+   "group": "Playable",
+   "file": "midori.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/2/26/Midori_Halo.png/revision/latest?cb=20211014152805"
+  },
+  {
+   "name": "Momoi",
+   "group": "Playable",
+   "file": "momoi.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/2/23/Momoi_Halo.png/revision/latest?cb=20211014152806"
+  },
+  {
+   "name": "Alice",
+   "group": "Playable",
+   "file": "alice.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/e/ed/Alice_Halo.png/revision/latest?cb=20211014152751"
+  },
+  {
+   "name": "Kei",
+   "group": "Playable",
+   "file": "kei.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/9/9c/Kei_Halo.png/revision/latest?cb=20260323085900"
+  },
+  {
+   "name": "Nagisa",
+   "group": "Playable",
+   "file": "nagisa.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/3/3e/Nagisa_Halo.png/revision/latest?cb=20230213125137"
+  },
+  {
+   "name": "Seia",
+   "group": "Playable",
+   "file": "seia.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/4/48/Seia_Halo.png/revision/latest?cb=20230213125148"
+  },
+  {
+   "name": "Mika",
+   "group": "Playable",
+   "file": "mika.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/f/f4/Mika_Halo.png/revision/latest?cb=20230206161051"
+  },
+  {
+   "name": "Kazusa",
+   "group": "Playable",
+   "file": "kazusa.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/4/42/Kazusa_Halo.png/revision/latest?cb=20221003135956"
+  },
+  {
+   "name": "Natsu",
+   "group": "Playable",
+   "file": "natsu.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/a/a1/Natsu_Halo.png/revision/latest?cb=20211116170503"
+  },
+  {
+   "name": "Airi",
+   "group": "Playable",
+   "file": "airi.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/3/38/Airi_Halo.png/revision/latest?cb=20211014154929"
+  },
+  {
+   "name": "Yoshimi",
+   "group": "Playable",
+   "file": "yoshimi.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/1/1b/Yoshimi_Halo.png/revision/latest?cb=20211014154948"
+  },
+  {
+   "name": "Tsurugi",
+   "group": "Playable",
+   "file": "tsurugi.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/4/48/Tsurugi_Halo.png/revision/latest?cb=20211014154946"
+  },
+  {
+   "name": "Hasumi",
+   "group": "Playable",
+   "file": "hasumi.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/f/ff/Hasumi_Halo.png/revision/latest?cb=20211014154935"
+  },
+  {
+   "name": "Mashiro",
+   "group": "Playable",
+   "file": "mashiro.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/e/e5/Mashiro_Halo.png/revision/latest?cb=20211014154940"
+  },
+  {
+   "name": "Ichika",
+   "group": "Playable",
+   "file": "ichika.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/4/4b/Ichika_Halo.png/revision/latest?cb=20230213125123"
+  },
+  {
+   "name": "Mine",
+   "group": "Playable",
+   "file": "mine.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/3/3d/Mine_Halo.png/revision/latest?cb=20230130141646"
+  },
+  {
+   "name": "Hanae",
+   "group": "Playable",
+   "file": "hanae.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/e/ef/Hanae_Halo.png/revision/latest?cb=20211014154932"
+  },
+  {
+   "name": "Serina",
+   "group": "Playable",
+   "file": "serina.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/d/db/Serina_Halo.png/revision/latest?cb=20211014154942"
+  },
+  {
+   "name": "Hifumi",
+   "group": "Playable",
+   "file": "hifumi.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/d/d5/Hifumi_Halo.png/revision/latest?cb=20211014154937"
+  },
+  {
+   "name": "Azusa",
+   "group": "Playable",
+   "file": "azusa.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/0/03/Azusa_Halo.png/revision/latest?cb=20211014154931"
+  },
+  {
+   "name": "Koharu",
+   "group": "Playable",
+   "file": "koharu.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/4/46/Koharu_Halo.png/revision/latest?cb=20211014154939"
+  },
+  {
+   "name": "Hanako",
+   "group": "Playable",
+   "file": "hanako.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/8/83/Hanako_Halo.png/revision/latest?cb=20211014154934"
+  },
+  {
+   "name": "Suzumi",
+   "group": "Playable",
+   "file": "suzumi.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/4/4c/Suzumi_Halo.png/revision/latest?cb=20211014154945"
+  },
+  {
+   "name": "Reisa",
+   "group": "Playable",
+   "file": "reisa.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/d/d8/Reisa_Halo.png/revision/latest?cb=20230213125140"
+  },
+  {
+   "name": "Ui",
+   "group": "Playable",
+   "file": "ui.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/4/41/Ui_Halo.png/revision/latest?cb=20220401135855"
+  },
+  {
+   "name": "Shimiko",
+   "group": "Playable",
+   "file": "shimiko.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/9/93/Shimiko_Halo.png/revision/latest?cb=20211014154943"
+  },
+  {
+   "name": "Sakurako",
+   "group": "Playable",
+   "file": "sakurako.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/2/22/Sakurako_Halo.png/revision/latest?cb=20230213125144"
+  },
+  {
+   "name": "Mari",
+   "group": "Playable",
+   "file": "mari.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/1/13/Mari_Halo.png/revision/latest?cb=20211116170501"
+  },
+  {
+   "name": "Hinata",
+   "group": "Playable",
+   "file": "hinata.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/e/e7/Hinata_Halo.png/revision/latest?cb=20220401135849"
+  },
+  {
+   "name": "Rabu",
+   "group": "Playable",
+   "file": "rabu.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/7/7a/Rabu_Halo.png/revision/latest?cb=20230213125140"
+  },
+  {
+   "name": "Niya",
+   "group": "Playable",
+   "file": "niya.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/6/6c/Niya_Halo.png/revision/latest?cb=20230213125139"
+  },
+  {
+   "name": "Kaho",
+   "group": "Playable",
+   "file": "kaho.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/b/bb/Kaho_Halo.png/revision/latest?cb=20230213125124"
+  },
+  {
+   "name": "Chise",
+   "group": "Playable",
+   "file": "chise.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/2/28/Chise_Halo.png/revision/latest?cb=20211012153128"
+  },
+  {
+   "name": "Nagusa",
+   "group": "Playable",
+   "file": "nagusa.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/e/ed/Nagusa_Halo.png/revision/latest?cb=20230428110507"
+  },
+  {
+   "name": "Renge",
+   "group": "Playable",
+   "file": "renge.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/0/02/Renge_Halo.png/revision/latest?cb=20240303054101"
+  },
+  {
+   "name": "Kikyou",
+   "group": "Playable",
+   "file": "kikyou.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/a/a1/Kikyou_Halo.png/revision/latest?cb=20240303061517"
+  },
+  {
+   "name": "Yukari",
+   "group": "Playable",
+   "file": "yukari.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/9/9f/Yukari_Halo.png/revision/latest?cb=20240303054601"
+  },
+  {
+   "name": "Shizuko",
+   "group": "Playable",
+   "file": "shizuko.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/7/72/Shizuko_Halo.png/revision/latest?cb=20211012154056"
+  },
+  {
+   "name": "Pina",
+   "group": "Playable",
+   "file": "pina.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/9/99/Pina_Halo.png/revision/latest?cb=20211012153132"
+  },
+  {
+   "name": "Umika",
+   "group": "Playable",
+   "file": "umika.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/1/19/Umika_Halo.png/revision/latest?cb=20230213125152"
+  },
+  {
+   "name": "Tsubaki",
+   "group": "Playable",
+   "file": "tsubaki.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/4/47/Tsubaki_Halo.png/revision/latest?cb=20211012153137"
+  },
+  {
+   "name": "Mimori",
+   "group": "Playable",
+   "file": "mimori.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/4/49/Mimori_Halo.png/revision/latest?cb=20220411141300"
+  },
+  {
+   "name": "Kaede",
+   "group": "Playable",
+   "file": "kaede.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/c/c8/Kaede_Halo.png/revision/latest?cb=20221024073127"
+  },
+  {
+   "name": "Michiru",
+   "group": "Playable",
+   "file": "michiru.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/d/d5/Michiru_Halo.png/revision/latest?cb=20221003135958"
+  },
+  {
+   "name": "Izuna",
+   "group": "Playable",
+   "file": "izuna.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/2/28/Izuna_Halo.png/revision/latest?cb=20211012153129"
+  },
+  {
+   "name": "Tsukuyo",
+   "group": "Playable",
+   "file": "tsukuyo.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/7/70/Tsukuyo_Halo.png/revision/latest?cb=20221003140003"
+  },
+  {
+   "name": "Wakamo",
+   "group": "Playable",
+   "file": "wakamo.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/a/a3/Wakamo_Halo.png/revision/latest?cb=20220128122437"
+  },
+  {
+   "name": "Kisaki",
+   "group": "Playable",
+   "file": "kisaki.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/2/22/Kisaki_Halo.png/revision/latest?cb=20230213125128"
+  },
+  {
+   "name": "Mina",
+   "group": "Playable",
+   "file": "mina.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/9/9e/Mina_Halo.png/revision/latest?cb=20230315082829"
+  },
+  {
+   "name": "Rumi",
+   "group": "Playable",
+   "file": "rumi.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/e/e5/Rumi_Halo.png/revision/latest?cb=20230213125143"
+  },
+  {
+   "name": "Reijo",
+   "group": "Playable",
+   "file": "reijo.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/8/87/Reijo_Halo.png/revision/latest?cb=20231223152645"
+  },
+  {
+   "name": "Shun",
+   "group": "Playable",
+   "file": "shun.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/a/a0/Shun_Halo.png/revision/latest?cb=20211012153136"
+  },
+  {
+   "name": "Kokona",
+   "group": "Playable",
+   "file": "kokona.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/8/84/Kokona_Halo.png/revision/latest?cb=20221024073130"
+  },
+  {
+   "name": "Saya",
+   "group": "Playable",
+   "file": "saya.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/c/cc/Saya_Halo.png/revision/latest?cb=20211012153134"
+  },
+  {
+   "name": "Cherino",
+   "group": "Playable",
+   "file": "cherino.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/4/46/Cherino_Halo.png/revision/latest?cb=20211012153126"
+  },
+  {
+   "name": "Tomoe",
+   "group": "Playable",
+   "file": "tomoe.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/9/9c/Tomoe_Halo.png/revision/latest?cb=20211205172650"
+  },
+  {
+   "name": "Marina",
+   "group": "Playable",
+   "file": "marina.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/b/b0/Marina_Halo.png/revision/latest?cb=20220401135850"
+  },
+  {
+   "name": "Minori",
+   "group": "Playable",
+   "file": "minori.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/9/9e/Minori_Halo.png/revision/latest?cb=20230213125134"
+  },
+  {
+   "name": "Meru",
+   "group": "Playable",
+   "file": "meru.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/3/32/Meru_Halo.png/revision/latest?cb=20230213125133"
+  },
+  {
+   "name": "Momiji",
+   "group": "Playable",
+   "file": "momiji.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/c/c2/Momiji_Halo.png/revision/latest?cb=20230213125135"
+  },
+  {
+   "name": "Nodoka",
+   "group": "Playable",
+   "file": "nodoka.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/1/19/Nodoka_Halo.png/revision/latest?cb=20211012153131"
+  },
+  {
+   "name": "Shigure",
+   "group": "Playable",
+   "file": "shigure.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/b/b4/Shigure_Halo.png/revision/latest?cb=20221210045706"
+  },
+  {
+   "name": "Yakumo",
+   "group": "Playable",
+   "file": "yakumo.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/7/73/Yakumo_Halo.png/revision/latest?cb=20240303054839"
+  },
+  {
+   "name": "Takane",
+   "group": "Playable",
+   "file": "takane.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/1/1f/Takane_Halo.png/revision/latest?cb=20240303054736"
+  },
+  {
+   "name": "Kanna",
+   "group": "Playable",
+   "file": "kanna.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/d/dc/Kanna_Halo.png/revision/latest?cb=20230206161049"
+  },
+  {
+   "name": "Konoka",
+   "group": "Playable",
+   "file": "konoka.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/7/75/Konoka_Halo.png/revision/latest?cb=20250930072046"
+  },
+  {
+   "name": "Kirino",
+   "group": "Playable",
+   "file": "kirino.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/7/7b/Kirino_Halo.png/revision/latest?cb=20211116170500"
+  },
+  {
+   "name": "Fubuki",
+   "group": "Playable",
+   "file": "fubuki.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/5/5d/Fubuki_Halo.png/revision/latest?cb=20220128154055"
+  },
+  {
+   "name": "Miyako",
+   "group": "Playable",
+   "file": "miyako.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/9/9f/Miyako_Halo.png/revision/latest?cb=20220401135852"
+  },
+  {
+   "name": "Saki",
+   "group": "Playable",
+   "file": "saki.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/0/0b/Saki_Halo.png/revision/latest?cb=20220401135853"
+  },
+  {
+   "name": "Miyu",
+   "group": "Playable",
+   "file": "miyu.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/5/51/Miyu_Halo.png/revision/latest?cb=20221003135959"
+  },
+  {
+   "name": "Moe",
+   "group": "Playable",
+   "file": "moe.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/e/e5/Moe_Halo.png/revision/latest?cb=20221003140000"
+  },
+  {
+   "name": "Niko",
+   "group": "Playable",
+   "file": "niko.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/f/f5/Niko_Halo.png/revision/latest?cb=20230213125138"
+  },
+  {
+   "name": "Otogi",
+   "group": "Playable",
+   "file": "otogi.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/7/7c/Otogi_Halo.png/revision/latest?cb=20240303055231"
+  },
+  {
+   "name": "Kurumi",
+   "group": "Playable",
+   "file": "kurumi.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/a/ac/Kurumi_Halo.png/revision/latest?cb=20240303055309"
+  },
+  {
+   "name": "Saori",
+   "group": "Playable",
+   "file": "saori.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/1/15/Saori_Halo.png/revision/latest?cb=20221003140002"
+  },
+  {
+   "name": "Atsuko",
+   "group": "Playable",
+   "file": "atsuko.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/0/00/Atsuko_Halo.png/revision/latest?cb=20221024073122"
+  },
+  {
+   "name": "Hiyori",
+   "group": "Playable",
+   "file": "hiyori.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/a/aa/Hiyori_Halo.png/revision/latest?cb=20221024073125"
+  },
+  {
+   "name": "Misaki",
+   "group": "Playable",
+   "file": "misaki.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/d/de/Misaki_Halo.png/revision/latest?cb=20221024073133"
+  },
+  {
+   "name": "Subaru",
+   "group": "Playable",
+   "file": "subaru.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/a/a3/Subaru_Halo.png/revision/latest?cb=20260323090036"
+  },
+  {
+   "name": "Hikari",
+   "group": "Playable",
+   "file": "hikari.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/5/5b/Hikari_Halo.png/revision/latest?cb=20240607215510"
+  },
+  {
+   "name": "Nozomi",
+   "group": "Playable",
+   "file": "nozomi.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/0/0d/Nozomi_Halo.png/revision/latest?cb=20240607215314"
+  },
+  {
+   "name": "Aoba",
+   "group": "Playable",
+   "file": "aoba.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/0/0e/Aoba_Halo.png/revision/latest?cb=20260323085919"
+  },
+  {
+   "name": "Eri",
+   "group": "Playable",
+   "file": "eri.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/6/63/Eri_Halo.png/revision/latest?cb=20260323085948"
+  },
+  {
+   "name": "Kanoe",
+   "group": "Playable",
+   "file": "kanoe.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/0/03/Kanoe_Halo.png/revision/latest?cb=20260323085937"
+  },
+  {
+   "name": "Rena",
+   "group": "Playable",
+   "file": "rena.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/c/cd/Rena_Halo.png/revision/latest?cb=20250930070620"
+  },
+  {
+   "name": "Miyo",
+   "group": "Playable",
+   "file": "miyo.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/6/61/Miyo_Halo.png/revision/latest?cb=20260323085958"
+  },
+  {
+   "name": "Fuyu",
+   "group": "Playable",
+   "file": "fuyu.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/2/24/Fuyu_Halo.png/revision/latest?cb=20260323090008"
+  },
+  {
+   "name": "Ritsu",
+   "group": "Playable",
+   "file": "ritsu.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/8/8f/Ritsu_Halo.png/revision/latest?cb=20260323090027"
+  },
+  {
+   "name": "Kokoro",
+   "group": "Playable",
+   "file": "kokoro.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/d/d7/Kokoro_Halo.png/revision/latest?cb=20260903061225"
+  },
+  {
+   "name": "Kotone",
+   "group": "Playable",
+   "file": "kotone.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/e/e2/Kotone_Halo.png/revision/latest?cb=20260903061208"
+  },
+  {
+   "name": "Miku",
+   "group": "Playable",
+   "file": "miku.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/9/98/Miku_Halo.png/revision/latest?cb=20220516072703"
+  },
+  {
+   "name": "Misaka Mikoto",
+   "group": "Playable",
+   "file": "misaka-mikoto.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/8/8d/Misaka_Mikoto_Halo.png/revision/latest?cb=20240303062644"
+  },
+  {
+   "name": "Shokuhou Misaki",
+   "group": "Playable",
+   "file": "shokuhou-misaki.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/0/07/Shokuhou_Misaki_Halo.png/revision/latest?cb=20240303064729"
+  },
+  {
+   "name": "Saten Ruiko",
+   "group": "Playable",
+   "file": "saten-ruiko.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/4/43/Saten_Ruiko_Halo.png/revision/latest?cb=20240303074235"
+  },
+  {
+   "name": "Arona",
+   "group": "NPC",
+   "file": "arona.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/8/86/Arona_Halo.png/revision/latest?cb=20230213150402"
+  },
+  {
+   "name": "Plana",
+   "group": "NPC",
+   "file": "plana.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/c/c0/Plana_Halo.png/revision/latest?cb=20231223064312"
+  },
+  {
+   "name": "Sora",
+   "group": "NPC",
+   "file": "sora.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/3/39/Sora_Halo.png/revision/latest?cb=20230213125150"
+  },
+  {
+   "name": "GSC President",
+   "group": "NPC",
+   "file": "gsc-president.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/7/75/GSC_President_Halo.png/revision/latest?cb=20260903062707"
+  },
+  {
+   "name": "False President",
+   "group": "NPC",
+   "file": "false-president.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/4/49/False_President_Halo.png/revision/latest?cb=20260903062445"
+  },
+  {
+   "name": "Rin",
+   "group": "NPC",
+   "file": "rin.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/7/73/Rin_Halo.png/revision/latest?cb=20230213125141"
+  },
+  {
+   "name": "Momoka",
+   "group": "NPC",
+   "file": "momoka.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/5/5c/Momoka_Halo.png/revision/latest?cb=20230213125136"
+  },
+  {
+   "name": "Kaya",
+   "group": "NPC",
+   "file": "kaya.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/f/fd/Kaya_Halo.png/revision/latest?cb=20230213125126"
+  },
+  {
+   "name": "Ayumu",
+   "group": "NPC",
+   "file": "ayumu.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/8/8c/Ayumu_Halo.png/revision/latest?cb=20230213125117"
+  },
+  {
+   "name": "Aoi",
+   "group": "NPC",
+   "file": "aoi.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/6/63/Aoi_Halo.png/revision/latest?cb=20230213125116"
+  },
+  {
+   "name": "Sumomo",
+   "group": "NPC",
+   "file": "sumomo.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/b/b4/Sumomo_Halo.png/revision/latest?cb=20230917050047"
+  },
+  {
+   "name": "Haine",
+   "group": "NPC",
+   "file": "haine.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/7/7a/Haine_Halo.png/revision/latest?cb=20261015180707"
+  },
+  {
+   "name": "Yume",
+   "group": "NPC",
+   "file": "yume.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/1/16/Yume_Halo.png/revision/latest?cb=20240211113713"
+  },
+  {
+   "name": "Mayumi",
+   "group": "NPC",
+   "file": "mayumi.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/3/3e/Mayumi_Halo.png/revision/latest?cb=20260903061541"
+  },
+  {
+   "name": "Karen",
+   "group": "NPC",
+   "file": "karen.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/4/4a/Karen_Halo.png/revision/latest?cb=20260903061521"
+  },
+  {
+   "name": "Shouko",
+   "group": "NPC",
+   "file": "shouko.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/7/7f/Shouko_Halo.png/revision/latest?cb=20260903061616"
+  },
+  {
+   "name": "Mirai",
+   "group": "NPC",
+   "file": "mirai.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/c/cf/Mirai_Halo.png/revision/latest?cb=20260323090111"
+  },
+  {
+   "name": "Tsubasa",
+   "group": "NPC",
+   "file": "tsubasa.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/0/06/Tsubasa_Halo.png/revision/latest?cb=20260323090119"
+  },
+  {
+   "name": "Ayame",
+   "group": "NPC",
+   "file": "ayame.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/6/66/Ayame_Halo.png/revision/latest?cb=20250930071738"
+  },
+  {
+   "name": "Arata",
+   "group": "NPC",
+   "file": "arata.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/c/c3/Arata_Halo.png/revision/latest?cb=20261015181120"
+  },
+  {
+   "name": "Kuzunoha",
+   "group": "NPC",
+   "file": "kuzunoha.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/0/03/Kuzunoha_Halo.png/revision/latest?cb=20230213125130"
+  },
+  {
+   "name": "Kokuriko",
+   "group": "NPC",
+   "file": "kokuriko.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/f/f0/Kokuriko_Halo.png/revision/latest?cb=20261015181252"
+  },
+  {
+   "name": "Shuro",
+   "group": "NPC",
+   "file": "shuro.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/b/b6/Shuro_Halo.png/revision/latest?cb=20261015181431"
+  },
+  {
+   "name": "Azami",
+   "group": "NPC",
+   "file": "azami.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/e/e6/Azami_Halo.png/revision/latest?cb=20260903062240"
+  },
+  {
+   "name": "Asakusa Natsuki",
+   "group": "NPC",
+   "file": "asakusa-natsuki.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/7/7d/Natsuki_Halo.png/revision/latest?cb=20260903061016"
+  },
+  {
+   "name": "Kaguya",
+   "group": "NPC",
+   "file": "kaguya.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/a/aa/Kaguya_Halo.png/revision/latest?cb=20250930071833"
+  },
+  {
+   "name": "Kai",
+   "group": "NPC",
+   "file": "kai.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/6/62/Kai_Halo.png/revision/latest?cb=20240303045932"
+  },
+  {
+   "name": "Misuzu",
+   "group": "NPC",
+   "file": "misuzu.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/3/36/Misuzu_Halo.png/revision/latest?cb=20260323090102"
+  },
+  {
+   "name": "Yukino",
+   "group": "NPC",
+   "file": "yukino.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/6/67/Yukino_Halo.png/revision/latest?cb=20230213125153"
+  },
+  {
+   "name": "Maia",
+   "group": "NPC",
+   "file": "maia.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/c/cb/Maia_Halo.png/revision/latest?cb=20260323090051"
+  },
+  {
+   "name": "Suou",
+   "group": "NPC",
+   "file": "suou.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/8/88/Suou_Halo.png/revision/latest?cb=20261015182545"
+  },
+  {
+   "name": "Hiromi",
+   "group": "NPC",
+   "file": "hiromi.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/a/ab/Hiromi_Halo.png/revision/latest?cb=20260323090129"
+  },
+  {
+   "name": "Tsumugi",
+   "group": "NPC",
+   "file": "tsumugi.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/0/0e/Tsumugi_Halo.png/revision/latest?cb=20250930071336"
+  },
+  {
+   "name": "Sumika",
+   "group": "NPC",
+   "file": "sumika.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/e/eb/Sumika_Halo.png/revision/latest?cb=20260903061504"
+  },
+  {
+   "name": "Nanami",
+   "group": "NPC",
+   "file": "nanami.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/f/f1/Nanami_Halo.png/revision/latest?cb=20261015174450"
+  },
+  {
+   "name": "Mitsuki",
+   "group": "NPC",
+   "file": "mitsuki.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/8/86/Mitsuki_Halo.png/revision/latest?cb=20260903061447"
+  },
+  {
+   "name": "Minato",
+   "group": "NPC",
+   "file": "minato.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/9/97/Minato_Halo.png/revision/latest?cb=20260903061334"
+  },
+  {
+   "name": "Ami",
+   "group": "NPC",
+   "file": "ami.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/4/4d/Ami_Halo.png/revision/latest?cb=20260903061317"
+  },
+  {
+   "name": "Sanae",
+   "group": "NPC",
+   "file": "sanae.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/9/96/Sanae_Halo.png/revision/latest?cb=20260903061302"
+  },
+  {
+   "name": "Sayuri",
+   "group": "NPC",
+   "file": "sayuri.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/d/de/Sayuri_Halo.png/revision/latest?cb=20260903061150"
+  },
+  {
+   "name": "Makina",
+   "group": "NPC",
+   "file": "makina.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/7/7d/Makina_Halo.png/revision/latest?cb=20260903061133"
+  },
+  {
+   "name": "Mai",
+   "group": "NPC",
+   "file": "mai.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/b/bb/Mai_Halo.png/revision/latest?cb=20230213125131"
+  },
+  {
+   "name": "Shinon",
+   "group": "NPC",
+   "file": "shinon.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/1/1d/Shinon_Halo.png/revision/latest?cb=20230213125149"
+  },
+  {
+   "name": "Akira",
+   "group": "NPC",
+   "file": "akira.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/3/34/Akira_Halo.png/revision/latest?cb=20230524160331"
+  },
+  {
+   "name": "Akemi",
+   "group": "NPC",
+   "file": "akemi.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/6/61/Akemi_Halo.png/revision/latest?cb=20250930071529"
+  },
+  {
+   "name": "Suiko",
+   "group": "NPC",
+   "file": "suiko.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/4/4f/Suiko_Halo.png/revision/latest?cb=20260903065326"
+  },
+  {
+   "name": "Nagomi",
+   "group": "NPC",
+   "file": "nagomi.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/b/b9/Nagomi_Halo.png/revision/latest?cb=20260903061655"
+  },
+  {
+   "name": "Youko",
+   "group": "NPC",
+   "file": "youko.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/f/fd/Youko_Halo.png/revision/latest?cb=20260903065400"
+  },
+  {
+   "name": "Binah",
+   "group": "Decagrammaton",
+   "file": "binah.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/d/dd/Binah_Halo.png/revision/latest?cb=20230213125118"
+  },
+  {
+   "name": "Chesed",
+   "group": "Decagrammaton",
+   "file": "chesed.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/b/b5/Chesed_Halo.png/revision/latest?cb=20230213125119"
+  },
+  {
+   "name": "Hod",
+   "group": "Decagrammaton",
+   "file": "hod.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/7/7f/Hod_Halo.png/revision/latest?cb=20230213125121"
+  },
+  {
+   "name": "Kether",
+   "group": "Decagrammaton",
+   "file": "kether.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/f/f3/Kether_Halo.png/revision/latest?cb=20230213125127"
+  },
+  {
+   "name": "Chokmah",
+   "group": "Decagrammaton",
+   "file": "chokmah.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/e/e8/Chokmah_Halo.png/revision/latest?cb=20260323090140"
+  },
+  {
+   "name": "Geburah",
+   "group": "Decagrammaton",
+   "file": "geburah.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/d/df/Geburah_Halo.png/revision/latest?cb=20260323090149"
+  },
+  {
+   "name": "Tiphareth",
+   "group": "Decagrammaton",
+   "file": "tiphareth.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/4/4d/Tiphareth_Halo.png/revision/latest?cb=20260323090156"
+  },
+  {
+   "name": "Yesod",
+   "group": "Decagrammaton",
+   "file": "yesod.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/2/23/Yesod_Halo.png/revision/latest?cb=20260323090204"
+  },
+  {
+   "name": "Da'at",
+   "group": "Decagrammaton",
+   "file": "da-at.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/1/1d/Da%27at_Halo.png/revision/latest?cb=20260323090256"
+  },
+  {
+   "name": "Malkuth",
+   "group": "Decagrammaton",
+   "file": "malkuth.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/b/b5/Malkuth_Halo.png/revision/latest?cb=20260323090305"
+  },
+  {
+   "name": "Decagrammaton",
+   "group": "Decagrammaton",
+   "file": "decagrammaton.webp",
+   "src": "https://static.wikia.nocookie.net/blue-archive/images/1/1b/Decagrammaton_Halo.png/revision/latest?cb=20260323090317"
+  }
+ ]
+}

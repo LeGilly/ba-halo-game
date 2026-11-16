@@ -1,5 +1,5 @@
 {
-  "_help": "Manual tweaks on top of the wiki data. exclude: names to hide. aliases: extra accepted spellings. rename: change a displayed name. extra: halos not on the wiki yet (group = Playable, NPC or anything). For security, extra images must be a Blue Archive Wiki image link (static.wikia.nocookie.net) or a file uploaded to this repository, e.g. \"halos/new-student.png\". aspect: correct a squashed halo, as width/height (e.g. \"Renge\": 1.3 shows it 1.3 times wider than tall).",
+  "_help": "Manual tweaks on top of the halos copied from the wiki. exclude: names to hide. aliases: extra accepted spellings. rename: change a displayed name. aspect: correct a squashed halo, as width/height (e.g. \"Renge\": 1.3). extra: halos the wiki doesn't have yet; upload the image to the custom/ folder and use e.g. { \"name\": \"New Student\", \"group\": \"Playable\", \"url\": \"custom/new-student.png\" }. Images from other sites are blocked for security.",
   "exclude": [],
   "aliases": {
     "Aris": [
@@ -28,12 +28,5 @@
   "aspect": {
     "Renge": 1.3
   },
-  "extra": [
-    {
-      "name": "Example Student",
-      "group": "Playable",
-      "url": "https://example.com/halo.png",
-      "_disabled": true
-    }
-  ]
+  "extra": []
 }

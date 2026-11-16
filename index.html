@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Security: only run this site's own code, only load data/images from the wiki. -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' https://static.wikia.nocookie.net; connect-src 'self' https://bluearchive.fandom.com; base-uri 'none'; form-action 'none'">
+  <!-- Security: only run code, styles, data and images from this site itself. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'none'">
   <meta name="referrer" content="no-referrer">
   <title>Who's that Halo? · Blue Archive</title>
   <meta name="description" content="Guess Blue Archive students from their halos. Auto-updates from the Blue Archive Wiki.">
   <meta name="theme-color" content="#128afa">
-  <link rel="stylesheet" href="style.css?v=14">
+  <link rel="stylesheet" href="style.css?v=15">
 </head>
 <body>
   <main class="wrap">
@@ -26,7 +26,7 @@
 
     <section class="card" id="card">
       <div class="stage loading" id="stage">
-        <img id="halo" alt="Mystery halo" draggable="false" referrerpolicy="no-referrer">
+        <img id="halo" alt="Mystery halo" draggable="false">
         <div class="loader" id="loader"><span class="spinner"></span><span id="loaderText">Loading halo…</span></div>
       </div>
       <p class="reveal" id="reveal" aria-live="polite"></p>
@@ -55,9 +55,9 @@
       Halo images and lists come from the
       <a href="https://bluearchive.fandom.com/wiki/Halo/Gallery" target="_blank" rel="noopener">Blue Archive Wiki</a>
       (CC BY-SA), copied weekly. Blue Archive © NEXON Games / Yostar. Fan-made, not affiliated.
-      <br><span class="version" title="Site version">v14</span>
+      <br><span class="version" title="Site version">v15</span>
     </footer>
   </main>
-  <script src="app.js?v=14"></script>
+  <script src="app.js?v=15"></script>
 </body>
 </html>

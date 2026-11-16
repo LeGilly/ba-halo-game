@@ -13,7 +13,7 @@ and on demand (**Actions** tab → **Update halos and deploy** → **Run workflo
 `tools/update_halos.py`, which downloads new or changed halos from the wiki, shrinks them to 360 px
 WebP files in `halos/`, lists them in `halos/halos.json`, commits them, and publishes the site.
 
-The game reads `halos/halos.json` first, and only falls back to the wiki directly if it's missing.
+The game only loads halos from this site (`halos/halos.json`); it never contacts the wiki itself.
 To run the updater on your own PC: `pip install pillow`, then `python tools/update_halos.py`.
 
 ## Manual tweaks: `config.json`
@@ -22,9 +22,9 @@ To run the updater on your own PC: `pip install pillow`, then `python tools/upda
 - `aliases`: extra accepted spellings, e.g. `"Aris": ["Alice", "Arisu"]`
 - `rename`: change a displayed name, e.g. `"Alice": "Aris"`
 - `aspect`: fix a squashed halo by setting its width/height ratio, e.g. `"Renge": 1.3`
-- `extra`: add a halo the wiki doesn't have yet:
-  `{ "name": "New Student", "group": "Playable", "url": "halos/new-student.png" }`
-  (the image must be uploaded to this repository, or be a Blue Archive Wiki image link; other sites are blocked for security)
+- `extra`: add a halo the wiki doesn't have yet: upload the image to the `custom/` folder, then add
+  `{ "name": "New Student", "group": "Playable", "url": "custom/new-student.png" }`
+  (only images on this site are allowed, for security; don't put them in `halos/`, which the weekly job manages)
 
 Edit it right on GitHub (pencil icon); the site updates within a minute or two.
 The `extra` and `rename` options also apply to the copied halos.
@@ -36,4 +36,4 @@ Fan-made, not affiliated.
 
 The version shown at the bottom of the page is in `index.html`.
 For each release, raise it by one and set every `?v=` number in `index.html` to the same value,
-so browsers fetch the fresh CSS/JS. Current version: 14.
+so browsers fetch the fresh CSS/JS. Current version: 15.

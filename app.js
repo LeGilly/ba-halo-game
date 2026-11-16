@@ -1,10 +1,5 @@
 // Who's that Halo? — halos are copied weekly from the Blue Archive Wiki into halos/ (see tools/update_halos.py).
-const WIKI_API =
-  "https://bluearchive.fandom.com/api.php?action=parse&page=Halo/Gallery&prop=text&format=json&formatversion=2&origin=*&useskin=fandomdesktop";
-// useskin=fandomdesktop: phones otherwise get the mobile layout, which lacks the image details we read.
-const CACHE_KEY = "halo-cache-v2";
 const DECKS_KEY = "decks-v1";
-const CACHE_HOURS = 12;
 const DEFAULT_POOLS = ["Playable"];
 const PRELOAD_AHEAD = 3;   // halos fetched ahead of time
 
@@ -23,13 +18,10 @@ const store = {
   set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} },
 };
 
-// Only accept halo images from the wiki's image server, or files hosted in this repository.
-const IMAGE_HOST = "static.wikia.nocookie.net";
+// Only accept halo images hosted on this site (halos/ and custom/ folders).
 function isAllowedImage(url) {
-  try {
-    const u = new URL(url, location.href);
-    return u.origin === location.origin || (u.protocol === "https:" && u.hostname === IMAGE_HOST);
-  } catch { return false; }
+  try { return new URL(url, location.href).origin === location.origin; }
+  catch { return false; }
 }
 
 const norm = (s) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]/g, "");
@@ -99,64 +91,17 @@ function recordAnswer(correct) {
 }
 
 // ---------- Data loading ----------
-// Halos copied into this site weekly by the GitHub job (halos/halos.json + images).
-// Falls back to reading the wiki live if that copy is missing.
-let haloSource = "wiki";
+// Halos are copied into this site weekly by the GitHub job (halos/halos.json + images).
 async function fetchHalos() {
-  try {
-    const res = await fetch("halos/halos.json", { cache: "no-cache" });
-    if (!res.ok) throw new Error("no local halos");
-    const data = await res.json();
-    const items = (data.halos || []).map((h) => ({
-      name: h.name, group: h.group,
-      url: "halos/" + encodeURIComponent(h.file) + "?" +
-        encodeURIComponent(((h.src.match(/cb=(\d+)/) || [])[1] || "") + "-" + (h.v || 1)),
-    }));
-    if (!items.length) throw new Error("empty halo list");
-    haloSource = "site";
-    return items;
-  } catch (e) {
-    console.warn("Using the wiki directly:", e.message);
-    return fetchWiki();
-  }
-}
-
-async function fetchWiki() {
-  const cached = store.get(CACHE_KEY, null);
-  if (cached && Date.now() - cached.t < CACHE_HOURS * 3600e3) return cached.items;
-  try {
-    const res = await fetch(WIKI_API);
-    const json = await res.json();
-    const items = parseGallery(json.parse.text);
-    if (!items.length) throw new Error("no halos found in the wiki page");
-    store.set(CACHE_KEY, { t: Date.now(), items });
-    return items;
-  } catch (e) {
-    if (cached) return cached.items;   // offline / wiki down -> use last good copy
-    throw e;
-  }
-}
-
-function parseGallery(html) {
-  const doc = new DOMParser().parseFromString(html, "text/html");
-  const items = [], seenKeys = new Set();
-  let group = "";
-  doc.querySelectorAll("h2, h3, h4, img").forEach((el) => {
-    if (el.tagName !== "IMG") {
-      const h = el.querySelector(".mw-headline");
-      if (h) group = h.textContent.trim();
-      return;
-    }
-    let src = el.getAttribute("data-src") || el.getAttribute("src") || "";
-    // File name, e.g. "Shiroko_Halo.png": from data-image-key, or from the image link as a fallback.
-    const key = el.getAttribute("data-image-key") ||
-      ((src.match(/\/images\/[0-9a-f]\/[0-9a-f]{2}\/([^/?#]+)/i) || [])[1] || "");
-    if (!/_Halo\./i.test(key) || seenKeys.has(key)) return;
-    seenKeys.add(key);
-    src = src.replace(/\/scale-to-width-down\/\d+/, "");   // original file: already cached by the wiki's CDN, much faster
-    const name = (el.getAttribute("alt") || decodeURIComponent(key).replace(/_Halo\..*$/i, "").replace(/_/g, " ")).trim();
-    items.push({ name, group: group || "Other", url: src });
-  });
+  const res = await fetch("halos/halos.json", { cache: "no-cache" });
+  if (!res.ok) throw new Error("halo list missing (" + res.status + ")");
+  const data = await res.json();
+  const items = (data.halos || []).map((h) => ({
+    name: h.name, group: h.group,
+    url: "halos/" + encodeURIComponent(h.file) + "?" +
+      encodeURIComponent(((h.src.match(/cb=(\d+)/) || [])[1] || "") + "-" + (h.v || 1)),
+  }));
+  if (!items.length) throw new Error("empty halo list");
   return items;
 }
 
@@ -193,7 +138,6 @@ function preload(url) {
   if (!imgCache.has(url)) {
     const p = new Promise((resolve, reject) => {
       const im = new Image();
-      im.referrerPolicy = "no-referrer";
       im.onload = () => (im.decode ? im.decode().catch(() => {}) : Promise.resolve()).then(() => resolve(im));
       im.onerror = () => { imgCache.delete(url); reject(new Error("image failed: " + url)); };
       im.src = url;
@@ -368,7 +312,8 @@ els.restart.addEventListener("click", () => {
     startNewRound();
     return;
   }
-  els.restart.textContent = "Click again to restart";
+  const touch = window.matchMedia && matchMedia("(pointer: coarse)").matches;
+  els.restart.textContent = touch ? "Tap again to restart" : "Click again to restart";
   restartArmed = setTimeout(() => { restartArmed = null; els.restart.textContent = "Restart round"; }, 3000);
 });
 
@@ -442,7 +387,8 @@ document.addEventListener("click", (e) => { if (!e.target.closest("#guessForm"))
 
 // ---------- Start ----------
 (async function init() {
-  try { localStorage.removeItem("halo-cache-v1"); } catch {}   // leftover from an early version
+  // Remove data saved by earlier versions that read the wiki directly.
+  try { localStorage.removeItem("halo-cache-v1"); localStorage.removeItem("halo-cache-v2"); } catch {}
   els.hard.checked = store.get("hard", false);
   try {
     const [items, cfg] = await Promise.all([fetchHalos(), fetchConfig()]);
@@ -450,10 +396,9 @@ document.addEventListener("click", (e) => { if (!e.target.closest("#guessForm"))
     groups = [...new Set(all.map((x) => x.group))];
     pools = new Set([...pools].filter((g) => groups.includes(g)));
     if (!pools.size) pools = new Set(groups.includes("Playable") ? ["Playable"] : groups.slice(0, 1));
-    // Green: normal (halos copied to this site). Red: backup mode (reading the wiki directly).
-    els.status.textContent = `${all.length} halos · ` +
-      (haloSource === "site" ? "updated weekly" : "live from the wiki (backup mode)");
-    els.status.classList.add(haloSource === "site" ? "ok" : "warn");
+    // Green: halos loaded. Red (below): something went wrong.
+    els.status.textContent = `${all.length} halos · updated weekly`;
+    els.status.classList.add("ok");
     renderPools(); rebuildPool(); showCurrent();
   } catch (e) {
     console.error(e);

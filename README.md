@@ -6,7 +6,7 @@ A Blue Archive halo guessing game. Halos come from the
 [Blue Archive Wiki Halo Gallery](https://bluearchive.fandom.com/wiki/Halo/Gallery),
 so new students appear automatically once the wiki adds them.
 
-## Daily halo update
+## Weekly halo update
 
 A GitHub Action (`.github/workflows/site.yml`) runs every Wednesday at 04:17 UTC, on every push to `main`,
 and on demand (**Actions** tab → **Update halos and deploy** → **Run workflow**). It runs

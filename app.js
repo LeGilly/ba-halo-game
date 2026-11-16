@@ -1,4 +1,4 @@
-// Who's that Halo? — reads the halo list live from the Blue Archive Wiki.
+// Who's that Halo? — halos are copied weekly from the Blue Archive Wiki into halos/ (see tools/update_halos.py).
 const WIKI_API =
   "https://bluearchive.fandom.com/api.php?action=parse&page=Halo/Gallery&prop=text&format=json&formatversion=2&origin=*&useskin=fandomdesktop";
 // useskin=fandomdesktop: phones otherwise get the mobile layout, which lacks the image details we read.
@@ -6,6 +6,7 @@ const CACHE_KEY = "halo-cache-v2";
 const DECKS_KEY = "decks-v1";
 const CACHE_HOURS = 12;
 const DEFAULT_POOLS = ["Playable"];
+const PRELOAD_AHEAD = 3;   // halos fetched ahead of time
 
 const $ = (id) => document.getElementById(id);
 const els = {
@@ -13,7 +14,7 @@ const els = {
   reveal: $("reveal"), form: $("guessForm"), guess: $("guess"), suggest: $("suggest"),
   submit: $("submitBtn"), skip: $("skipBtn"), next: $("nextBtn"),
   streak: $("streak"), best: $("best"), progress: $("progress"), progressLabel: $("progressLabel"),
-  accuracy: $("accuracy"), loaderText: $("loaderText"), preload: $("preloadBtn"),
+  accuracy: $("accuracy"), loaderText: $("loaderText"),
   summary: $("summary"), restart: $("restartBtn"),
 };
 
@@ -37,8 +38,8 @@ const esc = (s) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">"
 let all = [];          // [{name, group, url, accept:Set}]
 let groups = [];       // group names in wiki order
 let pools = new Set(store.get("pools", DEFAULT_POOLS));
-let pool = [], byName = new Map();
-let current = null, upcoming = null, answered = false, loading = true, roundId = 0;
+let pool = [], byName = new Map(), sortedNames = [];
+let current = null, answered = false, loading = true, roundId = 0;
 let streak = 0, selIdx = -1, lastSeen = null;
 
 // ---------- Deck: each halo once per round, saved across refreshes ----------
@@ -241,11 +242,10 @@ function updateScores() {
 function rebuildPool() {
   pool = all.filter((x) => pools.has(x.group));
   byName = new Map(pool.map((x) => [x.name, x]));
-  upcoming = null;
+  sortedNames = pool.map((x) => x.name).sort();
   streak = 0;
   loadDeck();
   updateScores();
-  resetPreloadBtn();
 }
 
 function setLoading(on, text = "Loading halo…") {
@@ -267,7 +267,6 @@ function showCurrent(failures = 0) {
   if (!deck.queue.length) { showSummary(); return; }
   setPlaying(true);
   current = byName.get(deck.queue[0]);
-  upcoming = deck.queue[1] ? byName.get(deck.queue[1]) : null;
   answered = false;
 
   // Clear the old halo right away so it is never shown for the new halo.
@@ -293,7 +292,8 @@ function showCurrent(failures = 0) {
       return (els.halo.decode ? els.halo.decode().catch(() => {}) : Promise.resolve()).then(() => {
         if (id !== roundId) return;
         setLoading(false);
-        if (upcoming) preload(upcoming.url);   // fetch the next halo in the background
+        // Fetch the next few halos in the background (about 18 KB each), so they show instantly.
+        for (const n of deck.queue.slice(1, 1 + PRELOAD_AHEAD)) preload(byName.get(n).url);
       });
     })
     .catch(() => {
@@ -372,35 +372,11 @@ els.restart.addEventListener("click", () => {
   restartArmed = setTimeout(() => { restartArmed = null; els.restart.textContent = "Restart round"; }, 3000);
 });
 
-// ---------- Preload all ----------
-function resetPreloadBtn() {
-  els.preload.disabled = !pool.length;
-  els.preload.textContent = "Preload all";
-}
-
-async function preloadAll() {
-  const urls = [...new Set(pool.map((x) => x.url))];
-  let done = 0, i = 0;
-  els.preload.disabled = true;
-  const tick = () => { els.preload.textContent = `Preloading ${done}/${urls.length}…`; };
-  tick();
-  const worker = async () => {
-    while (i < urls.length) {
-      const url = urls[i++];
-      try { await preload(url); } catch {}
-      done++; tick();
-    }
-  };
-  await Promise.all(Array.from({ length: 6 }, worker));
-  els.preload.textContent = "All halos ready ✓";
-}
-els.preload.addEventListener("click", preloadAll);
-
 // ---------- Autocomplete ----------
 function matches(q) {
   const n = norm(q);
   if (!n) return [];
-  const names = pool.map((x) => x.name).sort();
+  const names = sortedNames;
   const starts = names.filter((nm) => norm(nm).startsWith(n));
   const contains = names.filter((nm) => !norm(nm).startsWith(n) && norm(nm).includes(n));
   return [...starts, ...contains].slice(0, 8);
@@ -466,6 +442,7 @@ document.addEventListener("click", (e) => { if (!e.target.closest("#guessForm"))
 
 // ---------- Start ----------
 (async function init() {
+  try { localStorage.removeItem("halo-cache-v1"); } catch {}   // leftover from an early version
   els.hard.checked = store.get("hard", false);
   try {
     const [items, cfg] = await Promise.all([fetchHalos(), fetchConfig()]);

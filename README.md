@@ -34,6 +34,12 @@ Fan-made, not affiliated.
 
 ## Versions
 
-The version shown at the bottom of the page is in `index.html`.
-For each release, raise it by one and set every `?v=` number in `index.html` to the same value,
-so browsers fetch the fresh CSS/JS. Current version: 15.
+The version is shown at the bottom of the page and set in `index.html`, as major.minor.patch:
+
+- **patch** (1.0.**0** → 1.0.**1**): fixes and small visual changes
+- **minor** (1.**0**.1 → 1.**1**.0): a new feature
+- **major** (**1**.1.0 → **2**.0.0): a big change in what the project is or how it works
+
+For each release, set the new version in `index.html` (the shown version and every `?v=`, so browsers fetch
+the fresh files), add an entry to [CHANGELOG.md](CHANGELOG.md), and update the line below.
+Current version: 1.3.6.

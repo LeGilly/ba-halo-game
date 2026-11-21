@@ -1,8 +1,5 @@
 # Changelog
 
-Versions follow major.minor.patch: see the README. Before 2026-11-21 the site used a single number
-(v1 to v15); the versions below were rebuilt from the commit history.
-
 ## 1.3.6 · 2026-11-16
 - Halos are updated from the wiki weekly instead of daily
 

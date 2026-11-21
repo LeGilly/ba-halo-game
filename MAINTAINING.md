@@ -45,8 +45,8 @@ covers how it's built and released.
 
 ## Constraints
 
-- **Content security policy** (meta tag): `default-src 'none'; script-src 'self'; style-src 'self';
-  img-src 'self'; connect-src 'self'`. No inline scripts or styles, no third-party anything, images only
+- **Content security policy** (meta tag): `default-src 'none'; script-src 'self' https://legilly.com;
+  style-src 'self' https://legilly.com; img-src 'self'; connect-src 'self'`. No inline scripts or styles, no third-party anything, images only
   from this site (which is why `extra` halos must live in `custom/`).
 - Browser storage (`localStorage`): chosen halo groups (`pools`), Silhouette mode (`hard`), best streaks
   per group set and mode, and the current round.
@@ -56,23 +56,32 @@ covers how it's built and released.
 No test suite. Serve the folder (`python -m http.server`) and play a round in a browser; check light and
 dark mode and a phone width.
 
-## Colour themes (shared by all legilly.com sites)
+## Shared code: navigation bar and colour themes
 
-- `theme.css` and `theme.js` are shared by the hub, Anime Dashboard, Who's that Halo? and IdleRPG Web and must
-  stay **identical in every repo**: change them in one, copy them to the other three, and release each site.
-- `theme.js` is loaded in `<head>` before the stylesheets. It reads the `legilly_theme` cookie (`theme.mode`,
-  e.g. `purple.dark`; `Domain=legilly.com` so every subdomain shares it; falls back to localStorage elsewhere,
-  e.g. localhost), sets `data-theme` (blue, purple, teal, amber, rose) and `data-mode` (light or dark, with
-  System resolved) on `<html>`, and adds the theme button in the page's top-right corner, or inside an
-  element marked `data-tp-slot`. `<html data-tp-dark-only>` keeps a site dark.
-- `theme.css` defines `--bg --card --ink --muted --accent --accent-ink --line --tag --track --shadow` for each
-  theme in light and dark, plus the button and panel styles. Site stylesheets don't redefine these.
-- Text on an accent background uses `var(--accent-ink)`: white in light mode; dark text on the lighter
-  dark-mode accents (all but blue).
+- One script and one stylesheet are shared by every legilly.com site. They live **only in the hub repo**
+  (`LeGilly.github.io/shared/site.js` and `site.css`) and every site loads them from
+  `https://legilly.com/shared/`, in `<head>` before its own stylesheet. A change there reaches every site
+  within about 10 minutes of pushing the hub (GitHub Pages cache), with no commit in the other repos.
+  So test a change on all four sites before pushing the hub: a mistake breaks every site at once.
+- Each page says which project it belongs to: `<html data-lg-project="home|anime|halo|idlerpg">`
+  (highlights it in the bar). `<html data-tp-dark-only>` keeps a site dark (IdleRPG).
+- **The bar** (top of every page, 46 px, `--lg-bar-h`): home icon → hub; **Games** and **Tools** menus
+  listing every project (current one highlighted); theme button on the right. The project list is
+  `GROUPS` at the top of `site.js`. The bar replaced every "← All projects" link: don't add back links.
+  Pages get `padding-top` for it from the start (`html.lg-bar-on`), so nothing jumps when it's drawn.
+- **Themes:** the script reads the `legilly_theme` cookie (`theme.mode`, e.g. `purple.dark`;
+  `Domain=legilly.com` so every subdomain shares it; localStorage elsewhere, e.g. localhost) and sets
+  `data-theme` (blue, purple, teal, amber, rose) and `data-mode` (light or dark, System resolved) on `<html>`
+  before the page draws. `site.css` defines `--bg --card --ink --muted --accent --accent-ink --line --tag
+  --track --shadow` per theme and mode; site stylesheets don't redefine these.
+- Text on an accent background uses `var(--accent-ink)`: white in light mode and for Blue in dark mode;
+  dark text on the lighter dark-mode accents of the other themes.
 - Dark-only rules are written as `:root[data-mode="dark"] …`, plus `@media (prefers-color-scheme: dark)
   { :root:not([data-mode]) … }` as a fallback without the script.
 - How the palettes were made: the blue neutrals with only the hue rotated (same lightness, so the same
-  contrast); accents chosen by calculation, with at least the blue's contrast and at least as far from the
+  contrast); accents chosen by calculation, with at least the old blue's contrast and at least as far from the
   dashboard's status colours as the blue is from "Plan to watch". Check any new theme the same way.
+- Security rules: sites on legilly.com allow `script-src`/`style-src` `'self' https://legilly.com`; Anime
+  Dashboard (anime.legilly.com) needs `https://legilly.com` listed for both.
 - Here: the halo stage (`--stage`) mixes the theme's accent into a soft glow; `--good`/`--bad` and the
   score colour stay the same in every theme.

@@ -1,6 +1,6 @@
 # Who's that Halo?
 
-**▶ Play: https://legilly.github.io/ba-halo-game/**
+**▶ Play: https://legilly.com/ba-halo-game/**
 
 A Blue Archive guessing game: a halo appears, and you name the student it belongs to.
 

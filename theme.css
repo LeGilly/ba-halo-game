@@ -1,0 +1,188 @@
+/* Colour themes shared by every legilly.com site: the same file in each repo (see MAINTAINING.md).
+   theme.js sets data-theme (blue, purple, teal, amber, rose) and data-mode (light, dark) on <html>
+   before the page draws. Without it, the blue theme follows the system's light/dark setting. */
+:root {
+  color-scheme: light dark;
+  --bg: #eef5fc;
+  --card: #ffffff;
+  --ink: #1d2b3a;
+  --muted: #6b7c8f;
+  --accent: #128afa;
+  --accent-ink: #ffffff;
+  --line: #d6e3f0;
+  --tag: #e6f1fd;
+  --track: #e3ecf6;
+  --shadow: 0 1px 2px rgba(29, 43, 58, 0.06), 0 4px 16px rgba(29, 43, 58, 0.06);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-mode]) {
+    --bg: #0f1722;
+    --card: #172231;
+    --ink: #e6eef7;
+    --muted: #8fa1b5;
+    --accent: #128afa;
+    --accent-ink: #ffffff;
+    --line: #2a3a4f;
+    --tag: #1d2c40;
+    --track: #223247;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 4px 16px rgba(0, 0, 0, 0.25);
+  }
+}
+:root[data-mode="light"] { color-scheme: light; }
+:root[data-mode="dark"] { color-scheme: dark; }
+:root[data-mode="dark"] {
+  --bg: #0f1722;
+  --card: #172231;
+  --ink: #e6eef7;
+  --muted: #8fa1b5;
+  --accent: #128afa;
+  --accent-ink: #ffffff;
+  --line: #2a3a4f;
+  --tag: #1d2c40;
+  --track: #223247;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+
+/* Purple */
+:root[data-theme="purple"] {
+  --bg: #f5f2fb;
+  --card: #ffffff;
+  --ink: #2c2638;
+  --muted: #7c768d;
+  --accent: #6e38b8;
+  --accent-ink: #ffffff;
+  --line: #e3deef;
+  --tag: #f1edfc;
+  --track: #ece9f5;
+  --shadow: 0 1px 2px rgba(29, 43, 58, 0.06), 0 4px 16px rgba(29, 43, 58, 0.06);
+}
+:root[data-theme="purple"][data-mode="dark"] {
+  --bg: #181421;
+  --card: #231e2f;
+  --ink: #eeebf6;
+  --muted: #a19bb3;
+  --accent: #c2a4ff;
+  --accent-ink: #181421;
+  --line: #3c344c;
+  --tag: #2e273e;
+  --track: #342c44;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+
+/* Teal */
+:root[data-theme="teal"] {
+  --bg: #ecf7f5;
+  --card: #ffffff;
+  --ink: #142f2d;
+  --muted: #62817e;
+  --accent: #007973;
+  --accent-ink: #ffffff;
+  --line: #d1e6e4;
+  --tag: #e1f4f2;
+  --track: #dfefed;
+  --shadow: 0 1px 2px rgba(29, 43, 58, 0.06), 0 4px 16px rgba(29, 43, 58, 0.06);
+}
+:root[data-theme="teal"][data-mode="dark"] {
+  --bg: #071a19;
+  --card: #0c2624;
+  --ink: #e3f0ef;
+  --muted: #86a7a3;
+  --accent: #00d3c9;
+  --accent-ink: #071a19;
+  --line: #1b403d;
+  --tag: #0c322f;
+  --track: #123835;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+
+/* Amber */
+:root[data-theme="amber"] {
+  --bg: #fbf2ed;
+  --card: #ffffff;
+  --ink: #372519;
+  --muted: #8b7566;
+  --accent: #b2580b;
+  --accent-ink: #ffffff;
+  --line: #eeded3;
+  --tag: #fbece3;
+  --track: #f4e8e1;
+  --shadow: 0 1px 2px rgba(29, 43, 58, 0.06), 0 4px 16px rgba(29, 43, 58, 0.06);
+}
+:root[data-theme="amber"][data-mode="dark"] {
+  --bg: #20130b;
+  --card: #2e1d12;
+  --ink: #f5ebe4;
+  --muted: #b19a8a;
+  --accent: #ffa264;
+  --accent-ink: #20130b;
+  --line: #4a3323;
+  --tag: #3b2516;
+  --track: #422b1b;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+
+/* Rose */
+:root[data-theme="rose"] {
+  --bg: #fbf1f5;
+  --card: #ffffff;
+  --ink: #37232b;
+  --muted: #8c727c;
+  --accent: #c72481;
+  --accent-ink: #ffffff;
+  --line: #eedbe3;
+  --tag: #fbeaf1;
+  --track: #f4e7ec;
+  --shadow: 0 1px 2px rgba(29, 43, 58, 0.06), 0 4px 16px rgba(29, 43, 58, 0.06);
+}
+:root[data-theme="rose"][data-mode="dark"] {
+  --bg: #201218;
+  --card: #2e1b23;
+  --ink: #f6e9ee;
+  --muted: #b296a1;
+  --accent: #ff89c2;
+  --accent-ink: #201218;
+  --line: #4a303b;
+  --tag: #3b222d;
+  --track: #422833;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+
+/* Theme button and panel (drawn by theme.js in the top-right corner of every page) */
+.tp-corner { position: absolute; top: 12px; right: 12px; z-index: 40; }
+.tp-btn {
+  width: 38px; height: 38px; padding: 0; display: grid; place-items: center; cursor: pointer;
+  background: var(--card); border: 1px solid var(--line); border-radius: 10px; box-shadow: var(--shadow);
+}
+.tp-btn:hover, .tp-btn[aria-expanded="true"] { border-color: var(--accent); }
+.tp-btn:focus-visible, .tp-dot:focus-visible, .tp-modes button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.tp-sw { display: block; width: 18px; height: 18px; border-radius: 50%; box-shadow: 0 0 0 1px var(--line); }
+.tp-pop {
+  position: absolute; top: 46px; right: 0; display: grid; gap: 8px; padding: 12px 14px; width: max-content;
+  background: var(--card); color: var(--ink); border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow);
+  font: 14px/1.4 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; text-align: left;
+}
+.tp-pop[hidden] { display: none; }
+.tp-inline { position: relative; top: auto; right: auto; flex: none; }
+.tp-inline .tp-btn { width: 30px; height: 30px; border-radius: 8px; box-shadow: none; }
+.tp-inline .tp-sw { width: 14px; height: 14px; }
+.tp-inline .tp-pop { top: 38px; }
+.tp-note { margin: 0; max-width: 200px; font-size: 0.85rem; color: var(--muted); }
+.tp-modes[hidden] { display: none; }
+.tp-label { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; font-weight: 600; }
+.tp-dots { display: flex; gap: 8px; }
+.tp-dot {
+  width: 26px; height: 26px; padding: 0; border-radius: 50%; cursor: pointer;
+  border: 2px solid var(--card); box-shadow: 0 0 0 1px var(--line);
+}
+.tp-dot[aria-pressed="true"] { box-shadow: 0 0 0 2px var(--ink); }
+.tp-modes { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; padding: 2px; background: var(--bg); }
+.tp-modes button {
+  border: 0; background: transparent; color: var(--muted); font: inherit; font-size: 0.85rem;
+  padding: 4px 12px; border-radius: 999px; cursor: pointer;
+}
+.tp-modes button[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); }
+.tp-blue { background: linear-gradient(135deg, #128afa 50%, #128afa 50%); }
+.tp-purple { background: linear-gradient(135deg, #6e38b8 50%, #c2a4ff 50%); }
+.tp-teal { background: linear-gradient(135deg, #007973 50%, #00d3c9 50%); }
+.tp-amber { background: linear-gradient(135deg, #b2580b 50%, #ffa264 50%); }
+.tp-rose { background: linear-gradient(135deg, #c72481 50%, #ff89c2 50%); }

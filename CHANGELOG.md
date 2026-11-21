@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.4.0 · 2026-11-21
+- Colour themes: Blue, Purple, Teal, Amber and Rose, each in light and dark, from the button in the top-right corner. The choice applies to every legilly.com site
+
 ## 1.3.6 · 2026-11-16
 - Halos are updated from the wiki weekly instead of daily
 

@@ -56,8 +56,23 @@ covers how it's built and released.
 No test suite. Serve the folder (`python -m http.server`) and play a round in a browser; check light and
 dark mode and a phone width.
 
-## Planned
+## Colour themes (shared by all legilly.com sites)
 
-- **Theme picker** across all legilly.com sites: Blue (current), Purple, Green/teal, Amber, Rose, each with
-  light and dark versions, plus System/Light/Dark, saved in a cookie shared by every legilly.com site.
-  Here it goes in the footer; the green/red score gradient stays as it is.
+- `theme.css` and `theme.js` are shared by the hub, Anime Dashboard, Who's that Halo? and IdleRPG Web and must
+  stay **identical in every repo**: change them in one, copy them to the other three, and release each site.
+- `theme.js` is loaded in `<head>` before the stylesheets. It reads the `legilly_theme` cookie (`theme.mode`,
+  e.g. `purple.dark`; `Domain=legilly.com` so every subdomain shares it; falls back to localStorage elsewhere,
+  e.g. localhost), sets `data-theme` (blue, purple, teal, amber, rose) and `data-mode` (light or dark, with
+  System resolved) on `<html>`, and adds the theme button in the page's top-right corner, or inside an
+  element marked `data-tp-slot`. `<html data-tp-dark-only>` keeps a site dark.
+- `theme.css` defines `--bg --card --ink --muted --accent --accent-ink --line --tag --track --shadow` for each
+  theme in light and dark, plus the button and panel styles. Site stylesheets don't redefine these.
+- Text on an accent background uses `var(--accent-ink)`: white in light mode; dark text on the lighter
+  dark-mode accents (all but blue).
+- Dark-only rules are written as `:root[data-mode="dark"] …`, plus `@media (prefers-color-scheme: dark)
+  { :root:not([data-mode]) … }` as a fallback without the script.
+- How the palettes were made: the blue neutrals with only the hue rotated (same lightness, so the same
+  contrast); accents chosen by calculation, with at least the blue's contrast and at least as far from the
+  dashboard's status colours as the blue is from "Plan to watch". Check any new theme the same way.
+- Here: the halo stage (`--stage`) mixes the theme's accent into a soft glow; `--good`/`--bad` and the
+  score colour stay the same in every theme.

@@ -1,22 +1,16 @@
+/* Theme colours (background, text, accent…) come from theme.css, shared by all legilly.com sites. */
 :root {
-  --bg: #eef5fc;
-  --card: #ffffff;
-  --ink: #1d2b3a;
-  --muted: #6b7c8f;
-  --accent: #128afa;
   --good: #1fa463;
   --bad: #e5484d;
-  --line: #d6e3f0;
-  --stage: radial-gradient(circle at 50% 45%, #ffffff 0%, #dceafa 100%);
+  /* The halo stage: a soft glow in the theme's colours. */
+  --stage: radial-gradient(circle at 50% 45%, var(--card) 0%, color-mix(in srgb, var(--accent) 10%, var(--line)) 100%);
+}
+:root[data-mode="dark"] {
+  --stage: radial-gradient(circle at 50% 45%, color-mix(in srgb, var(--accent) 14%, var(--line)) 0%, color-mix(in srgb, var(--accent) 4%, var(--bg)) 100%);
 }
 @media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #0f1722;
-    --card: #172231;
-    --ink: #e6eef7;
-    --muted: #8fa1b5;
-    --line: #2a3a4f;
-    --stage: radial-gradient(circle at 50% 45%, #2a3d55 0%, #142030 100%);
+  :root:not([data-mode]) {
+    --stage: radial-gradient(circle at 50% 45%, color-mix(in srgb, var(--accent) 14%, var(--line)) 0%, color-mix(in srgb, var(--accent) 4%, var(--bg)) 100%);
   }
 }
 * { box-sizing: border-box; }
@@ -45,7 +39,7 @@ h1 span { color: var(--accent); }
   border: 1px solid var(--line); background: var(--card); color: var(--ink);
   padding: 5px 12px; border-radius: 999px; cursor: pointer; font-size: 0.85rem;
 }
-.chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+.chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
 .toggle { font-size: 0.85rem; color: var(--muted); display: flex; align-items: center; gap: 6px; cursor: pointer; }
 
 .card { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 16px; }
@@ -89,11 +83,11 @@ input[type="text"]:focus { outline: 2px solid var(--accent); outline-offset: -1p
 }
 #suggest:empty { display: none; }
 #suggest li { padding: 7px 10px; border-radius: 6px; cursor: pointer; }
-#suggest li[aria-selected="true"], #suggest li:hover { background: var(--accent); color: #fff; }
+#suggest li[aria-selected="true"], #suggest li:hover { background: var(--accent); color: var(--accent-ink); }
 
 button {
   padding: 10px 16px; font-size: 1rem; border-radius: 10px; border: 0;
-  background: var(--accent); color: #fff; cursor: pointer; font-weight: 600;
+  background: var(--accent); color: var(--accent-ink); cursor: pointer; font-weight: 600;
 }
 button:disabled { opacity: .45; cursor: default; }
 button.ghost { background: transparent; color: var(--muted); border: 1px solid var(--line); }
@@ -113,8 +107,9 @@ button.link { background: none; color: var(--muted); font-weight: 400; font-size
 .scores span { display: block; font-size: 1.5rem; font-weight: 700; font-variant-numeric: tabular-nums; }
 .scores small { color: var(--muted); }
 #accuracy.rated { color: hsl(var(--hue) 75% 32%); transition: color .3s ease; }
+:root[data-mode="dark"] #accuracy.rated { color: hsl(var(--hue) 70% 60%); }
 @media (prefers-color-scheme: dark) {
-  #accuracy.rated { color: hsl(var(--hue) 70% 60%); }
+  :root:not([data-mode]) #accuracy.rated { color: hsl(var(--hue) 70% 60%); }
 }
 
 footer { margin-top: 24px; text-align: center; font-size: 0.78rem; color: var(--muted); }

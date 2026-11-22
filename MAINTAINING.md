@@ -15,6 +15,7 @@
 | `custom/` | Images for `extra` halos the wiki doesn't have yet (create it when needed) |
 | `tools/update_halos.py` | Copies halos from the Blue Archive Wiki |
 | `.github/workflows/site.yml` | Runs the updater and publishes the site |
+| `tests/`, `package.json`, `playwright.config.mjs`, `.github/workflows/tests.yml` | The tests (see Testing) |
 
 ## Hosting and the weekly update
 
@@ -47,8 +48,11 @@
 
 ## Testing
 
-No test suite. Serve the folder (`python -m http.server`) and play a round in a browser; check light and
-dark mode and a phone width.
+How tests run (GitHub, locally, keeping them current) is in the hub's `MAINTAINING.md`, "Tests".
+`tests/game.spec.mjs` plays rounds with three halos taken from `halos/halos.json` (right, wrong, skip,
+summary, review of missed halos, progress after a reload, restart, Silhouette mode, phone width). The test
+files get published with the site (the workflow publishes the whole folder); that's harmless.
+Still check light and dark mode by eye.
 
 ## Shared bar and themes: what's specific here
 

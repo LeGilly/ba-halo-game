@@ -1,0 +1,12 @@
+{
+  "name": "ba-halo-game-tests",
+  "private": true,
+  "description": "Tests for Who's that Halo? (not used by the site itself).",
+  "type": "module",
+  "scripts": {
+    "test": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.65.1"
+  }
+}

@@ -91,3 +91,14 @@ test("fits a phone screen, with the navigation bar on top", async ({ page }) => 
   const top = await page.evaluate(() => document.querySelector("main, .wrap, header").getBoundingClientRect().top);
   expect(top).toBeGreaterThanOrEqual(46 - 1);
 });
+
+test("every ?v= matches the version in the footer and the changelog", async () => {
+  const read = (name) => readFileSync(new URL("../" + name, import.meta.url), "utf8");
+  const latest = read("CHANGELOG.md").match(/^## (\d+\.\d+\.\d+)/m)[1];
+  const html = read("index.html");
+  const versions = [...html.matchAll(/\?v=([\d.]+)/g)].map((m) => m[1]);
+  expect(versions.length).toBeGreaterThan(0);
+  expect(new Set(versions)).toEqual(new Set([latest]));
+  for (const m of html.matchAll(/(?:src|href)="((?!https?:|#|data:)[^"]+\.(?:js|css)[^"]*)"/g)) expect(m[1]).toContain("?v=");
+  expect(html).toContain(`v${latest}</span>`);
+});

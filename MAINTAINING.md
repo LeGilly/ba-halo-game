@@ -9,7 +9,7 @@
 
 | Path | What it is |
 |---|---|
-| `index.html`, `style.css`, `app.js` | The game (one page, one script) |
+| `index.html`, `style.css`, `js/app.js` | The game (one page, one script) |
 | `config.json` | Manual tweaks on top of the wiki data (see README); has a `_help` line |
 | `halos/` | Halo images (WebP, max 360 px) and `halos.json`; managed by the updater, don't edit by hand |
 | `custom/` | Images for `extra` halos the wiki doesn't have yet (create it when needed) |
@@ -33,7 +33,7 @@
 
 ## Releasing
 
-- Version: `index.html` (footer `vX.Y.Z` and every `?v=`: style.css, app.js).
+- Version: `index.html` (footer `vX.Y.Z` and every `?v=`: style.css, js/app.js). A test checks they all match the changelog.
 - The weekly halo commits don't need a version.
 - The repo is on the owner's PC with Windows line endings (CRLF), and the halo bot commits to `main`:
   **fetch/pull before committing**.

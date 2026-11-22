@@ -1,0 +1,5 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+# Halo images are never text
+*.webp binary
+*.png binary

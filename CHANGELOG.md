@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.5.1 · 2026-11-22
+- Behind the scenes: the game's script moved into a `js/` folder, like the other projects (no visible change)
+
 ## 1.5.0 · 2026-11-21
 - Navigation bar at the top: home button to the hub, Games and Tools menus to switch project, and the theme button (replaces the back link)
 

@@ -2,6 +2,7 @@
 const DECKS_KEY = "decks-v1";
 const DEFAULT_POOLS = ["Playable"];
 const PRELOAD_AHEAD = 3;   // halos fetched ahead of time
+const NEW_DAYS = 14;       // a halo counts as "new" this many days after it was added (two weekly updates)
 
 const $ = (id) => document.getElementById(id);
 const els = {
@@ -97,7 +98,7 @@ async function fetchHalos() {
   if (!res.ok) throw new Error("halo list missing (" + res.status + ")");
   const data = await res.json();
   const items = (data.halos || []).map((h) => ({
-    name: h.name, group: h.group,
+    name: h.name, group: h.group, added: h.added,
     url: "halos/" + encodeURIComponent(h.file) + "?" +
       encodeURIComponent(((h.src.match(/cb=(\d+)/) || [])[1] || "") + "-" + (h.v || 1)),
   }));
@@ -117,7 +118,7 @@ function applyConfig(items, cfg) {
   const aspect = cfg.aspect || {};   // e.g. { "Renge": 1.3 }: show that halo at width/height = 1.3
   const extra = (cfg.extra || []).filter((x) => x && x.name && x.url && !x._disabled);
   const map = new Map();
-  for (const it of [...items, ...extra.map((x) => ({ name: x.name, group: x.group || "Playable", url: x.url }))]) {
+  for (const it of [...items, ...extra.map((x) => ({ name: x.name, group: x.group || "Playable", url: x.url, added: x.added }))]) {
     if (typeof it.name !== "string" || !isAllowedImage(it.url)) continue;   // skip anything suspicious
     const name = rename[it.name] || it.name;
     if (exclude.has(norm(name)) || exclude.has(norm(it.name))) continue;
@@ -385,6 +386,30 @@ document.addEventListener("keydown", (e) => {
 // fires a "click" on the Guess button, which used to clear the highlighted name before submitting.
 document.addEventListener("click", (e) => { if (!e.target.closest("#guessForm")) closeSuggest(); });
 
+// Halos added in the last NEW_DAYS days ("added": "YYYY-MM-DD", written by the updater).
+// Only the count is shown: listing the names would give the answers away.
+function countNew() {
+  const now = Date.now();
+  return all.filter((x) => {
+    const t = /^\d{4}-\d{2}-\d{2}$/.test(x.added || "") ? Date.parse(x.added + "T00:00:00Z") : NaN;
+    return t <= now && now - t < NEW_DAYS * 864e5;
+  }).length;
+}
+
+function showStatus() {
+  els.status.textContent = `${all.length} halos · `;
+  const n = countNew();
+  if (n) {
+    const b = document.createElement("span");
+    b.className = "new";
+    b.textContent = `+${n} new`;
+    b.title = `${n} halo${n > 1 ? "s" : ""} added in the last two weeks`;
+    els.status.append(b, " · ");
+  }
+  els.status.append("updated weekly");
+  els.status.classList.add("ok");
+}
+
 // ---------- Start ----------
 (async function init() {
   // Remove data saved by earlier versions that read the wiki directly.
@@ -397,8 +422,7 @@ document.addEventListener("click", (e) => { if (!e.target.closest("#guessForm"))
     pools = new Set([...pools].filter((g) => groups.includes(g)));
     if (!pools.size) pools = new Set(groups.includes("Playable") ? ["Playable"] : groups.slice(0, 1));
     // Green: halos loaded. Red (below): something went wrong.
-    els.status.textContent = `${all.length} halos · updated weekly`;
-    els.status.classList.add("ok");
+    showStatus();
     renderPools(); rebuildPool(); showCurrent();
   } catch (e) {
     console.error(e);

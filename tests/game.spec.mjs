@@ -83,6 +83,23 @@ test("silhouette mode hides the colours until the answer", async ({ page }) => {
   await expect(page.locator("#stage")).toHaveClass(/revealed/);
 });
 
+test("the count says how many halos were added in the last two weeks, without naming them", async ({ page }) => {
+  await sharedFiles(page);
+  const day = (ago) => new Date(Date.now() - ago * 864e5).toISOString().slice(0, 10);
+  const dated = { ...SMALL, halos: SMALL.halos.map((h, i) => ({ ...h, added: [day(0), day(30), undefined][i] })) };
+  await page.route("**/halos/halos.json", (r) => r.fulfill({ json: dated }));
+  await page.goto("/");
+  await expect(page.locator("#status")).toHaveText("3 halos · +1 new · updated weekly");
+  await expect(page.locator("#status .new")).toHaveAttribute("title", "1 halo added in the last two weeks");
+  await expect(page.locator("#status")).not.toContainText(PICK[0]);
+});
+
+test("no new halos: the count shows no badge", async ({ page }) => {
+  await start(page);
+  await expect(page.locator("#status")).toHaveText("3 halos · updated weekly");
+  await expect(page.locator("#status .new")).toHaveCount(0);
+});
+
 test("fits a phone screen, with the navigation bar on top", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 760 });
   await start(page);

@@ -4,7 +4,7 @@ Run weekly by .github/workflows/site.yml (or by hand: `python tools/update_halos
 - Reads the wiki's Halo Gallery page (names, groups and image links).
 - Downloads only halos that are new or changed since the last run, politely (one at a time).
 - Shrinks each one to at most 360 px and saves it as WebP in halos/.
-- Writes halos/halos.json, which the game reads.
+- Writes halos/halos.json, which the game reads, with the date each new halo was first copied ("added").
 Needs Pillow:  pip install pillow
 """
 import io
@@ -112,6 +112,7 @@ def slug(name, taken):
 def main():
     sys.stdout.reconfigure(line_buffering=True)   # show progress live in the GitHub log
     started = time.monotonic()
+    today = time.strftime("%Y-%m-%d", time.gmtime())
     OUT.mkdir(exist_ok=True)
     old = {}
     if MANIFEST.exists():
@@ -141,6 +142,12 @@ def main():
         file = prev["file"] if prev else slug(it["name"], taken) + ".webp"
         taken.add(file[:-5])
         entry = {"name": it["name"], "group": it["group"], "file": file, "src": it["src"], "v": PROCESS_VERSION}
+        # "added": the day this halo first appeared here (the game shows "N new" for two weeks).
+        # Halos from before this field existed have none; the very first run (no list yet) dates nothing.
+        if prev and prev.get("added"):
+            entry["added"] = prev["added"]
+        elif not prev and old:
+            entry["added"] = today
         if up_to_date(it):
             halos.append(entry)                     # unchanged: nothing to download
             continue
@@ -188,7 +195,7 @@ def main():
     if changed or removed or len(halos) != len(old):
         MANIFEST.write_text(json.dumps({
             "source": "https://bluearchive.fandom.com/wiki/Halo/Gallery",
-            "updated": time.strftime("%Y-%m-%d", time.gmtime()),
+            "updated": today,
             "halos": halos,
         }, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     print(f"Done: {changed} downloaded, {len(removed)} removed, {len(failed)} failed, {len(halos)} total.")

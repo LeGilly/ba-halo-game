@@ -21,6 +21,11 @@ h1 { margin: 0; font-size: 2rem; letter-spacing: -0.02em; }
 .sub.ok::before, .sub.warn::before { content: "● "; }
 .sub.ok { color: var(--good); }
 .sub.warn { color: var(--bad); }
+/* "+N new" halos since the last updates: a small pill in the theme's accent. */
+.sub .new {
+  background: var(--accent); color: var(--accent-ink); border-radius: 999px;
+  padding: 1px 8px; font-size: 0.8rem; cursor: help;
+}
 
 .options { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: center; margin-bottom: 14px; }
 .chips { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; }

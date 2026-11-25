@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.6.0 · 2026-11-25
+- The halo count shows how many halos were added in the last two weeks ("+6 new"), without naming them
+
 ## 1.5.1 · 2026-11-22
 - Behind the scenes: the game's script moved into a `js/` folder, like the other projects (no visible change)
 

@@ -29,6 +29,11 @@
   downloads new or changed halos, refuses oversized images. Raise `PROCESS_VERSION` when the image
   processing changes, to redo every halo once. Run locally with `pip install pillow` then
   `python tools/update_halos.py`.
+- **New halos:** the updater gives each halo it copies for the first time `"added": "YYYY-MM-DD"` in
+  `halos.json` (kept on later runs). Halos from before 1.6.0 have no date and never count as new. The game
+  shows "+N new" next to the count for halos added in the last 14 days (`NEW_DAYS` in `js/app.js`; two weekly
+  runs, so a late run doesn't hide it). Only the count is shown, never the names: that would give answers away.
+  Halos are matched by wiki name, so a renamed halo on the wiki counts as new once.
 - The game never contacts the wiki: it only loads `halos/halos.json`, `config.json` and images from this site.
 
 ## Releasing

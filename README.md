@@ -17,6 +17,9 @@ A GitHub Action (`.github/workflows/site.yml`, running `tools/update_halos.py`) 
 to this site every week, so new students appear automatically. The game only loads halos from this site;
 it never contacts the wiki itself.
 
+Under the title, the halo count also says how many halos were added in the last two weeks (e.g. "+6 new"),
+without naming them.
+
 ## `config.json`
 
 - `exclude`: names to hide, e.g. `["Arona"]`
@@ -25,5 +28,6 @@ it never contacts the wiki itself.
 - `aspect`: fix a squashed halo by setting its width/height ratio, e.g. `"Renge": 1.3`
 - `extra`: add a halo the wiki doesn't have yet, from the `custom/` folder:
   `{ "name": "New Student", "group": "Playable", "url": "custom/new-student.png" }`
+  (add `"added": "YYYY-MM-DD"` to count it as new for two weeks)
 
 Halo images © NEXON Games / Yostar, via the Blue Archive Wiki (CC BY-SA). Fan-made, not affiliated.
